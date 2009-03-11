@@ -1,0 +1,2885 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AK.Net.Json</name>
+    </assembly>
+    <members>
+        <member name="T:AK.Net.Json.Conversion.IJsonSerializer">
+            <summary>
+            Provides the functionality to serialize and deserialize objects in the JavaScipt
+            Object Notation format.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes and returns the JavaScript Object Notation representation of the 
+            specified object.
+            </summary>
+            <param name="graph">The object to serialize.</param>
+            <returns>The serialized object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonSerializer.Deserialize(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Deserializes the specified <see cref="T:AK.Net.Json.IJsonType"/> into the specified
+            target type.
+            </summary>
+            <param name="value">The serialized type.</param>
+            <param name="targetType">The target deserialization type.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonArray">
+            <summary>
+            Represents a JavaScript Object Notation Array data type which contains a 
+            collection of <see cref="T:AK.Net.Json.IJsonType"/>s.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonArray">
+            <summary>
+            Defines a JavaScript Object Notation Array data type.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonType">
+            <summary>
+            Defines a JavaScript Object Notation data type.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonVisitable">
+            <summary>
+            Allows implementing types to be visitied by a <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitable.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits the implementing data type using the specified
+            <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="P:AK.Net.Json.IJsonType.JsonTypeCode">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.JsonTypeCode"/> of the type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.#ctor">
+            <summary>
+            Inialises a new instance of the JsonArray class.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this Json type using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.String)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.Boolean)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.Byte)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.SByte)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.Int16)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.UInt16)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.Int32)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.UInt32)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.Int64)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.UInt64)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.Add(System.Double)">
+            <summary>
+            Adds the specified item to this collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.GetString(System.Int32)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonString"/> at the specified
+            <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the IJsonString.</param>
+            <returns>The IJsonString at the specified index.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.GetArray(System.Int32)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonArray"/> at the specified
+            <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the IJsonArray.</param>
+            <returns>The IJsonArray at the specified index.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.GetNumber(System.Int32)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonNumber"/> at the specified
+            <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the IJsonNumber.</param>
+            <returns>The IJsonNumber at the specified index.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.GetObject(System.Int32)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonObject"/> at the specified
+            <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the IJsonObject.</param>
+            <returns>The IJsonObject at the specified index.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.GetBoolean(System.Int32)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonBoolean"/> at the specified
+            <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the IJsonBoolean.</param>
+            <returns>The IJsonBoolean at the specified index.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.op_Implicit(AK.Net.Json.JsonNull)~AK.Net.Json.JsonArray">
+            <summary>
+            Implicit conversion operator.
+            </summary>
+            <param name="value">JsonNull value.</param>
+            <returns>This method always returns null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.InsertItem(System.Int32,AK.Net.Json.IJsonType)">
+            <summary>
+            Inserts the specified <paramref name="item"/> into this collection at the
+            specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index at which to insert the item.</param>
+            <param name="item">The item to insert.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.SetItem(System.Int32,AK.Net.Json.IJsonType)">
+            <summary>
+            Replaces an item at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the item to replace.</param>
+            <param name="item">The replacement item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonArray.ValidateItem(AK.Net.Json.IJsonType)">
+            <summary>
+            Validates the specified <paramref name="item"/> before insertion or 
+            setting.
+            </summary>
+            <param name="item">The item to validate.</param>
+        </member>
+        <member name="P:AK.Net.Json.JsonArray.JsonTypeCode">
+            <summary>
+            Returns the JsonTypeCode for this instance.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IndentedJsonWriter">
+            <summary>
+            Provide support for writing JavaScript Object Notation data types to an
+            underlying <see cref="T:System.IO.TextWriter"/> whilst indenting the output.
+            </summary>   
+        </member>
+        <member name="T:AK.Net.Json.JsonWriter">
+            <summary>
+            Provides support for writing JavaScript Object Notation data types to an
+            underlying <see cref="T:System.IO.TextWriter"/>.
+            </summary>    
+            <remarks>
+            This writer assumes that calling ToString on primtives returns a correctly 
+            formatted string.
+            </remarks>
+        </member>
+        <member name="T:AK.Net.Json.IJsonVisitor">
+            <summary>
+            Defines an object capable of visting all Json types.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitor.VisitBoolean(AK.Net.Json.IJsonBoolean)">
+            <summary>
+            Visits the specified <see cref="T:AK.Net.Json.IJsonBoolean"/>.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitor.VisitString(AK.Net.Json.IJsonString)">
+            <summary>
+            Visits the specified <see cref="T:AK.Net.Json.IJsonString"/>.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitor.VisitNumber(AK.Net.Json.IJsonNumber)">
+            <summary>
+            Visits the specified <see cref="T:AK.Net.Json.IJsonNumber"/>.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitor.VisitNull(AK.Net.Json.IJsonNull)">
+            <summary>
+            Visits the specified <see cref="T:AK.Net.Json.IJsonNull"/>.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitor.VisitArray(AK.Net.Json.IJsonArray)">
+            <summary>
+            Visits the specified <see cref="T:AK.Net.Json.IJsonArray"/>.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonVisitor.VisitObject(AK.Net.Json.IJsonObject)">
+            <summary>
+            Visits the specified <see cref="T:AK.Net.Json.IJsonObject"/>.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:AK.Net.Json.IJsonWriter">
+            <summary>
+            Defines a JavaScript Object Notation data type writer.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.Write(AK.Net.Json.IJsonType)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonType"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.WriteBoolean(AK.Net.Json.IJsonBoolean)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonBoolean"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.WriteString(AK.Net.Json.IJsonString)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonString"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.WriteNumber(AK.Net.Json.IJsonNumber)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonNumber"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.WriteNull(AK.Net.Json.IJsonNull)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonNull"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.WriteArray(AK.Net.Json.IJsonArray)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonArray"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.WriteObject(AK.Net.Json.IJsonObject)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonObject"/> to the underlying
+            data stream.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IJsonWriter.Close">
+            <summary>
+            Closes the writer.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonWriter.BeginArray">
+            <summary>
+            Defines the start of an array. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonWriter.EndArray">
+            <summary>
+            Defines the end of an array. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonWriter.BeginObject">
+            <summary>
+            Defines the start of an object. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonWriter.EndObject">
+            <summary>
+            Defines the end of an object. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonWriter.ValueSeperator">
+            <summary>
+            Defines the value seperator. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonWriter.NameSeperator">
+            <summary>
+            Defines the object property name and value seperator. This field is constant.
+            </summary>       
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.#ctor">
+            <summary>
+            Initialises a new instance of then JsonWriter class using a
+            <see cref="T:System.IO.StringWriter"/> as the underlying 
+            <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.#ctor(System.IO.TextWriter,System.Boolean)">
+            <summary>
+            Initialises a new instance of the JsonWriter class and specifies
+            the underlying <see cref="T:System.IO.TextWriter"/> and a value indicating
+            if the instance owns the specified TextWriter.
+            </summary>
+            <param name="writer">The underlying text writer.</param>
+            <param name="ownsWriter">True if this instance owns the specified TextWriter,
+            otherwise; false.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.Write(AK.Net.Json.IJsonType)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonType"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteBoolean(AK.Net.Json.IJsonBoolean)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonBoolean"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteString(AK.Net.Json.IJsonString)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonString"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteNumber(AK.Net.Json.IJsonNumber)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonNumber"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteNull(AK.Net.Json.IJsonNull)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonNull"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteArray(AK.Net.Json.IJsonArray)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonArray"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteObject(AK.Net.Json.IJsonObject)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonObject"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.Close">
+            <summary>
+            Closes this writer.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.Dispose(System.Boolean)">
+            <summary>
+            Disposed of this instance.
+            </summary>
+            <param name="disposing">True if being called explicitly, otherwise; false
+            to indicate being called implicitly by the GC.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.Write(System.Char)">
+            <summary>
+            Writes the specified char to the underlying text writer.
+            </summary>
+            <param name="value">The char to write.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.Write(System.String)">
+            <summary>
+            Writes the specified string to the underlying text writer.
+            </summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteLine">
+            <summary>
+            Writes a newline to the underlying text writer.
+            </summary>        
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteLine(System.Char)">
+            <summary>
+            Writes the specified char, followed by a newline, to the underlying text writer.
+            </summary>
+            <param name="value">The char to write.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonWriter.WriteLine(System.String)">
+            <summary>
+            Writes the specified string, followed by a newline, to the underlying text writer.
+            </summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="P:AK.Net.Json.JsonWriter.OwnsWriter">
+            <summary>
+            Gets a value indicating if this instance owns it's 
+            <see cref="P:AK.Net.Json.JsonWriter.Writer"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.JsonWriter.Writer">
+            <summary>
+            Gets the underlying <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.IndentedJsonWriter.#ctor">
+            <summary>
+            Initialises a new instance of then IndentedJsonWriter class using a
+            <see cref="T:System.IO.StringWriter"/> as the underlying 
+            <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.IndentedJsonWriter.#ctor(System.IO.TextWriter,System.Boolean)">
+            <summary>
+            Initialises a new instance of the IndentedJsonWriter class and specifies
+            the underlying <see cref="T:System.IO.TextWriter"/> and a value indicating
+            if the instance owns the specified TextWriter.
+            </summary>
+            <param name="writer">The underlying text writer.</param>
+            <param name="ownsWriter">True if this instance owns the specified TextWriter,
+            otherwise; false.</param>
+        </member>
+        <member name="M:AK.Net.Json.IndentedJsonWriter.WriteArray(AK.Net.Json.IJsonArray)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonArray"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IndentedJsonWriter.WriteObject(AK.Net.Json.IJsonObject)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.IJsonObject"/> to the underlying
+            text writer.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AK.Net.Json.IndentedJsonWriter.WriteIndent">
+            <summary>
+            Writes the indent to the underlying text writer.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.IndentedJsonWriter.IndentString">
+            <summary>
+            Gets or sets the string used to indent the output.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.IndentedJsonWriter.IndentLevel">
+            <summary>
+            Gets or sets the indent level.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataTableConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.DataTable"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.JsonConverter">
+            <summary>
+            Defines a base class for a <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/>.
+            This class is abstract.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.IJsonConverter">
+            <summary>
+            Defines the functionality needed to convert objects into thier JavaScript Object Notation 
+            representation.
+            </summary>
+            <remarks>Converters MUST BE be thread safe.</remarks>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if the converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+            <exception cref="T:System.InvalidOperationException">thrown when conversion of the specified
+            object is not supported by the converter.</exception>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if the converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+            <exception cref="T:System.InvalidOperationException">thrown when conversion of the specified
+            IJsonType is not supported by the converter.</exception>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if the converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+            <exception cref="T:System.InvalidOperationException">thrown when conversion of the specified
+            object is not supported by the converter.</exception>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if the converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+            <exception cref="T:System.InvalidOperationException">thrown when conversion of the specified
+            IJsonType is not supported by the converter.</exception>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.GetConverter(System.Object)">
+            <summary>
+            Returns a <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/> for the specified
+            object.
+            </summary>
+            <param name="obj">The object to locate a converter for.</param>
+            <returns>A <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/> for the specified
+            <see cref="T:System.Object"/> if one exists, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.GetConverter(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/> for the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> and target <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target conversion type.</param>
+            <returns>A <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/> for the specified
+            <see cref="T:System.Type"/> if one exists, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.RegisterConverter(AK.Net.Json.Conversion.IJsonConverter)">
+            <summary>
+            Registers a <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/> with the
+            Json conversion infrastructure.
+            </summary>        
+            <param name="converter">The converter.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.CreateCannotConvertFromException(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a <see cref="T:System.NotSupportedException"/> detailing that conversion is not
+            support from the specified value to the specified target type.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="targetType">The conversion target type.</param>
+            <returns>A <see cref="T:System.NotSupportedException"/> detailing that conversion is not
+            support from the specified value to the specified target type.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonConverter.CreateCannotConvertException(System.Object)">
+            <summary>
+            Returns a <see cref="T:System.NotSupportedException"/> detailing that conversion is not
+            support for the specified object.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>A <see cref="T:System.NotSupportedException"/> detailing that conversion is not
+            support for the specified object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataTableConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataTableConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.IJsonObject">
+            <summary>
+            Defines a JavaScript Object Notation Object data type.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataViewConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.DataView"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataViewConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataViewConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.NullMemberPolicy">
+            <summary>
+            Specifies the policy applied when the serializer encounters a null member.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.NullMemberPolicy.Ignore">
+            <summary>
+            Do not serialize the member.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.NullMemberPolicy.Serialize">
+            <summary>
+            Serialize the member.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.DefaultJsonSerializerFactory">
+            <summary>
+            Provides a default implementation of the 
+            <see cref="T:AK.Net.Json.Conversion.IJsonSerializerFactory"/> interface.
+            This class cannot be inherited.
+            </summary>    
+        </member>
+        <member name="T:AK.Net.Json.Conversion.IJsonSerializerFactory">
+            <summary>
+            Defines a factory for creating <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>s.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonSerializerFactory.CreateSerializer">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for serialising objects.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonSerializerFactory.CreateSerializer(AK.Net.Json.Conversion.SerializerPolicy)">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for serialising objects and specifies the policy of the serialiser.
+            </summary>
+            <param name="policy">The serialiser policy.</param>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.IJsonSerializerFactory.CreateDeserializer">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for deserialising objects.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.DefaultJsonSerializerFactory.CreateSerializer">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for serialising objects.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.DefaultJsonSerializerFactory.CreateSerializer(AK.Net.Json.Conversion.SerializerPolicy)">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for serialising objects and specifies the policy of the serialiser.
+            </summary>
+            <param name="policy">The serialiser policy.</param>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.DefaultJsonSerializerFactory.CreateDeserializer">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for deserialising objects.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataRecordConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.IDataRecord"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.DataRecordConverter.Instance">
+            <summary>
+            Provides a default instance of the DataRecordConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataRecordConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataRecordConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Configuration.JsonConversionSection">
+            <summary>
+            Represents the JSON conversion configuration section within an application 
+            configuration file.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Configuration.JsonConversionSection.GetSection">
+            <summary>
+            Helper method to retrieve the JsonConversionSection from it's default location.
+            </summary>
+            <returns>The JsonSection.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Configuration.JsonConversionSection.SerializerFactoryTypeName">
+            <summary>
+            Gets or sets the type name of the 
+            <see cref="T:AK.Net.Json.Conversion.IJsonSerializerFactory"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Configuration.JsonConversionSection.CircularReferencePolicy">
+            <summary>
+            Gets or sets the default <see cref="T:AK.Net.Json.Conversion.CircularReferencePolicy"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Configuration.JsonConversionSection.NullMemberPolicy">
+            <summary>
+            Gets or sets the default <see cref="T:AK.Net.Json.Conversion.NullMemberPolicy"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Configuration.JsonConversionSection.Converters">
+            <summary>
+            Gets or sets the collection of converter configuration elements.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Configuration.JsonConverterElement">
+            <summary>
+            Represents a Json converter configuration element.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Configuration.JsonConverterElement.TypeName">
+            <summary>
+            Gets the converter type name.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonString">
+            <summary>
+            Defines a JavaScipt Object Notation String data type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.IJsonString.Value">
+            <summary>
+            Gets the value of the Json string.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.IJsonString.EncodedValue">
+            <summary>
+            Gets the encoded value of the Json string.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.SerializerPolicy">
+            <summary>
+            Contains the policies that are applied during serialisation.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.SerializerPolicy.CreateDefault">
+            <summary>
+            Creates the default serializer policy, based on the application configuration.
+            </summary>
+            <returns>The default serializer policy</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.SerializerPolicy.#ctor(AK.Net.Json.Conversion.CircularReferencePolicy,AK.Net.Json.Conversion.NullMemberPolicy)">
+            <summary>
+            Initialises a new instance of the SerializerPolicy class.
+            </summary>
+            <param name="circularReferencePolicy">The <see cref="T:AK.Net.Json.Conversion.CircularReferencePolicy"/> 
+            to apply to circular references.</param>
+            <param name="nullMemberPolicy">The <see cref="T:AK.Net.Json.Conversion.NullMemberPolicy"/> 
+            to apply to null members.</param>
+        </member>
+        <member name="P:AK.Net.Json.Conversion.SerializerPolicy.NullMemberPolicy">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Conversion.NullMemberPolicy"/> to apply to null 
+            members.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Conversion.SerializerPolicy.CircularReferencePolicy">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Conversion.CircularReferencePolicy"/> to apply to 
+            circular referneces.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Error">
+            <summary>
+            Library error helper.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.JsonObject">
+            <summary>
+            Represents a JavaScript Object Notation Object data type which contains a 
+            collection of <see cref="T:AK.Net.Json.IJsonType"/>s accessed by key.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisation constructor.
+            </summary>
+            <param name="info">The object containing the data needed to deserialise an instance.</param>
+            <param name="context">The boejct which specifies the source of the deserialisation.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.#ctor">
+            <summary>
+            Inialises a new instance of the JsonObject class.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this Json type using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.String)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.Boolean)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.Byte)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.SByte)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.Int16)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.UInt16)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.Int32)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>        
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.UInt32)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.Int64)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.UInt64)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.Add(System.String,System.Double)">
+            <summary>
+            Adds the specified key and item to this dictionary.
+            </summary>
+            <param name="key">The key of the item</param>
+            <param name="item">The value of the item.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.GetString(System.String)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonString"/> identified by the 
+            specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the IJsonString.</param>
+            <returns>The IJsonString identified by the specified key.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.GetArray(System.String)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonArray"/> identified by the 
+            specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the IJsonArray.</param>
+            <returns>The IJsonArray identified by the specified key.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.GetNumber(System.String)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonNumber"/> identified by the 
+            specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the IJsonNumber.</param>
+            <returns>The IJsonNumber identified by the specified key.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.GetObject(System.String)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonObject"/> identified by the 
+            specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the IJsonObject.</param>
+            <returns>The IJsonObject identified by the specified key.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.GetBoolean(System.String)">
+            <summary>
+            Gets a <see cref="T:AK.Net.Json.IJsonBoolean"/> identified by the 
+            specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the IJsonBoolean.</param>
+            <returns>The IJsonBoolean identified by the specified key.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonObject.op_Implicit(AK.Net.Json.JsonNull)~AK.Net.Json.JsonObject">
+            <summary>
+            Implicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns>This method always returns null.</returns>
+        </member>
+        <member name="P:AK.Net.Json.JsonObject.JsonTypeCode">
+            <summary>
+            Returns the JsonTypeCode for this instance.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.TimeSpanConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.TimeSpan"/>s into thier equivalent 
+            JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.TimeSpanConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.TimeSpanConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.TimeSpanConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.TimeSpanConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataReaderConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.IDataReader"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataReaderConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataReaderConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonTypeSkeleton">
+            <summary>
+            Defines a base class for most Json types. This class is abstract.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonTypeSkeleton.#ctor(AK.Net.Json.JsonTypeCode)">
+            <summary>
+            Initialises a new instance of the JsonTypeSkeleton class and specifies the 
+            type code.
+            </summary>
+            <param name="typeCode">The type code.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonTypeSkeleton.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            When overriden in a derived class; visits this Json type using the specified
+            <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="P:AK.Net.Json.JsonTypeSkeleton.JsonTypeCode">
+            <summary>
+            Gets the type code of this Json type.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonNull">
+            <summary>
+            Defines a JavaScipt Object Notation Null.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.UriConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Uri"/>s into thier equivalent JavaScript 
+            Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.UriConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.UriConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.UriConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.UriConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.GuidConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Guid"/>s into thier equivalent JavaScript 
+            Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.GuidConverter.GuidFormat">
+            <summary>
+            Specified the Guid format string. This field is constant.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.GuidConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.GuidConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.GuidConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.GuidConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonUtility">
+            <summary>
+            Provides static utility methods for the <see cref="N:AK.Net.Json"/> namespace.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonUtility.IsPrimitive(AK.Net.Json.IJsonType)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:AK.Net.Json.IJsonType"/>
+            is one of the four Json primitives.
+            </summary>
+            <param name="value">The Json type to classify.</param>
+            <returns>True if the specified IJsonType is a primitive, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonUtility.IsStructure(AK.Net.Json.IJsonType)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:AK.Net.Json.IJsonType"/>
+            is one of the two Json structures.
+            </summary>
+            <param name="value">The Json type to classify.</param>
+            <returns>True if the specified IJsonType is a structure, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonUtility.GetPrimitiveValue(AK.Net.Json.IJsonType)">
+            <summary>
+            Returns the value of the specified Json primtive.
+            </summary>
+            <param name="value">The Json primtive.</param>
+            <returns>The primtive value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Configuration.JsonConverterElementCollection">
+            <summary>
+            Represents a collection of 
+            <see cref="T:AK.Net.Json.Configuration.JsonConverterElement"/>s.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Configuration.JsonConverterElementCollection.#ctor">
+            <summary>
+            Intialises a new instance of the JsonConverterElementCollection class.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Configuration.JsonConverterElementCollection.CreateNewElement">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Configuration.JsonConverterElement"/> 
+            configuration element.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Configuration.JsonConverterElement"/>  
+            configuration element.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Configuration.JsonConverterElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the key for the specified configuration element.
+            </summary>
+            <param name="element">The configuration element.</param>
+            <returns>The key for the specified configuration element.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Configuration.JsonConverterElementCollection.ThrowOnDuplicate">
+            <summary>
+            Gets a value indicating if duplicate configurations elements should result in a
+            <see cref="T:System.Configuration.ConfigurationException"/> being thrown.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.JsonString">
+            <summary>
+            Represents a JavaScript Object Notation String data type. This class cannot 
+            be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonString.Empty">
+            <summary>
+            Defines an empty JsonString. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the JsonString class and specifies the
+            value.
+            </summary>
+            <param name="value">The value of the instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this Json type using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this JsonString 
+            instance.
+            </summary>
+            <returns> <see cref="T:System.String"/> representation of this JsonString 
+            instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the specified object is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Equals(AK.Net.Json.JsonString)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            JsonString.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Equals(AK.Net.Json.IJsonString)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:AK.Net.Json.IJsonString"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Equals(System.String)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.String"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.CompareTo(AK.Net.Json.JsonString)">
+            <summary>
+            Returns a value indicating equality with the specified instance.
+            </summary>
+            <param name="other">The JsonNumber to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.CompareTo(AK.Net.Json.IJsonString)">
+            <summary>
+            Returns a value indicating equality with the specified
+            <see cref="T:AK.Net.Json.IJsonString"/>.
+            </summary>
+            <param name="other">The <see cref="T:AK.Net.Json.IJsonString"/> to 
+            compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.CompareTo(System.String)">
+            <summary>
+            Returns a value indicating equality with the specified <see cref="T:System.String"/>.
+            </summary>
+            <param name="other">The String to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.GetHashCode">
+            <summary>
+            Returns a hash code for this JsonString.
+            </summary>
+            <returns>A hash code for this JsonString.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Equals(AK.Net.Json.JsonString,AK.Net.Json.JsonString)">
+            <summary>
+            Determines if the two <see cref="T:AK.Net.Json.JsonString"/>s are
+            equal.
+            </summary>
+            <param name="a">The first JsonString.</param>
+            <param name="b">The second JsonString.</param>
+            <returns>True if the JsonStrings are equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.op_Equality(AK.Net.Json.JsonString,AK.Net.Json.JsonString)">
+            <summary>
+            Equality operator.
+            </summary>
+            <param name="a">The first JsonString.</param>
+            <param name="b">The second JsonString.</param>
+            <returns>True if the JsonStrings are equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.op_Inequality(AK.Net.Json.JsonString,AK.Net.Json.JsonString)">
+            <summary>
+            Inequality operator.
+            </summary>
+            <param name="a">The first JsonString.</param>
+            <param name="b">The second JsonString.</param>
+            <returns>True if the JsonStrings are not equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.op_Implicit(System.String)~AK.Net.Json.JsonString">
+            <summary>
+            Implicit conversion operator.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.op_Implicit(AK.Net.Json.JsonNull)~AK.Net.Json.JsonString">
+            <summary>
+            Implicit conversion operator.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>This method always returns null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.op_Explicit(AK.Net.Json.JsonString)~System.String">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonString.Encode(System.String)">
+            <summary>
+            Encodes the specified <see cref="T:System.String"/>.
+            </summary>
+            <param name="s">The string to encode.</param>
+            <returns>The encoded string.</returns>
+        </member>
+        <member name="P:AK.Net.Json.JsonString.Value">
+            <summary>
+            Gets the un-encoded value of the this JsonString.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.JsonString.EncodedValue">
+            <summary>
+            Gets the encoded value of this JsonString.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.JsonParser">
+            <summary>
+            Provided support for parsing JavaScript Object Notation data types from
+            an underlying <see cref="T:System.IO.TextReader"/>.
+            </summary>    
+        </member>
+        <member name="F:AK.Net.Json.JsonParser.DefaultMaxDepth">
+            <summary>
+            Specifies the default maximum depth. This field is constant.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the JsonParser class and specifies 
+            <see cref="T:System.String"/> containing the Json encoded data.
+            </summary>
+            <param name="s">The Json encoded string.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.#ctor(System.IO.TextReader,System.Boolean)">
+            <summary>
+            Initialises a new instance of the JsonParser class and specifies the source
+            <see cref="T:System.IO.TextReader"/> and a value indicating if the instance
+            owns the specified TextReader.
+            </summary>
+            <param name="rdr">The underlying TextReader.</param>
+            <param name="ownsReader">True if this instance owns the TextReader, otherwise; 
+            false.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.NextToken">
+            <summary>
+            Classifies the next token on the underlying stream.
+            </summary>
+            <returns>The classification of the next token from the underlying stream.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseBoolean">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.JsonBoolean"/> from the underlying
+            stream.
+            </summary>
+            <returns>The parsed JsonBoolean.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseNull">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.JsonNull"/> from the underlying
+            stream.
+            </summary>
+            <returns>The parsed JsonNull.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseNumber">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.JsonNumber"/> from the underlying
+            stream.
+            </summary>
+            <returns>The parsed JsonNumber.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseObject">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.JsonObject"/> and all contained types 
+            from the underlying stream.
+            </summary>
+            <returns>The parsed JsonObject.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseArray">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.JsonArray"/> and all contained types 
+            from the underlying stream.
+            </summary>
+            <returns>The parsed JsonArray.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseString">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.JsonString"/> from the underlying stream.
+            </summary>
+            <returns>The parsed JsonString.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseNext">
+            <summary>
+            Parses the next type from the underlying stream.
+            </summary>
+            <returns>The next type from the underlying stream.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.ParseNext(AK.Net.Json.JsonTokenType)">
+            <summary>
+            Parses the specified <paramref name="type"/> from the underlying stream.
+            </summary>
+            <param name="type">The type to parse.</param>
+            <returns>The type parsed from the underlying stream.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.Close">
+            <summary>
+            Closes this parser.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.Peek">
+            <summary>
+            Peeks at and returns a single character from the underlying stream.
+            </summary>
+            <returns>The character, otherwise; -1 if the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.Peek(System.Boolean)">
+            <summary>
+            Peeks at the next character from the underlying stream and specifies a value
+            which indicates whether white space characters should be advanced over.
+            </summary>
+            <param name="skipWhite">True to skip white space characters, otherwise; false.</param>
+            <returns>The next character from the underlying stream, or -1 if the end
+            has been reached.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.Read">
+            <summary>
+            Reads and returns a single character from the underlying stream.
+            </summary>
+            <returns>The character, otherwise; -1 if the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.Read(System.Boolean)">
+            <summary>
+            Reads the next character from the underlying stream and specified a value
+            which indicates whether white space characters should be skipped.
+            </summary>
+            <param name="skipWhite">True to skip white space characters, otherwise; false.</param>
+            <returns>The next character from the underlying stream, or -1 if the end
+            has been reached.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.AssertDepth(System.Int32)">
+            <summary>
+            Asserts that the specified depth does not exceed 
+            <see cref="P:AK.Net.Json.JsonParser.MaximumDepth"/>. If the depth has been
+            exceeded, a <see cref="T:System.FormatException"/> is thrown.
+            </summary>
+            <param name="depth">The depth.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonParser.Dispose(System.Boolean)">
+            <summary>
+            Disposed of this instance.
+            </summary>
+            <param name="disposing">True if being called explicitly, otherwise; false
+            to indicate being called implicitly by the GC.</param>
+        </member>
+        <member name="P:AK.Net.Json.JsonParser.Depth">
+            <summary>
+            Gets the current depth of the parser.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.JsonParser.MaximumDepth">
+            <summary>
+            Gets or sets the maximum depth of structures before a 
+            <see cref="T:System.FormatException"/> is thrown.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.JsonParser.OwnsReader">
+            <summary>
+            Gets a value indicating if this instance owns it's 
+            <see cref="P:AK.Net.Json.TextParser.Reader"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.JsonParser.Reader">
+            <summary>
+            Gets the underlying <see cref="T:System.IO.TextReader"/>.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.JsonParser.SpState">
+            <summary>
+            Structure parse state.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonParser.SpState.Initial">
+            <summary>
+            Initial.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonParser.SpState.ReqValue">
+            <summary>
+            A value is required.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonParser.SpState.SepValid">
+            <summary>
+            A seperator is currently valid.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.JsonTypeConverterAttribute">
+            <summary>
+            Specifies the <see cref="T:AK.Net.Json.Conversion.IJsonConverter"/> type that is capable
+            of converting the target to and from it's equivalent JavaScript Object Notation representation.
+            This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonTypeConverterAttribute.#ctor(System.Type)">
+            <summary>
+            Initialises a new instance of the JsonTypeConverterAttribute class and specifies the 
+            <see cref="T:System.Type"/> of the converter capable of converting the type to which 
+            the attribute is being applied.
+            </summary>
+            <param name="converterType">The converter type.</param>
+        </member>
+        <member name="P:AK.Net.Json.Conversion.JsonTypeConverterAttribute.ConverterType">
+            <summary>
+            Gets the <see cref="T:System.Type"/> of the converter capable of converting the 
+            type to which this attribute is applied.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.CircularReferencePolicy">
+            <summary>
+            Specifies the policy applied when the serializer encounters a circular reference.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.CircularReferencePolicy.Serialize">
+            <summary>
+            Serialize the member.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.CircularReferencePolicy.Throw">
+            <summary>
+            Throw a serialisation exception.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonNumber">
+            <summary>
+            Defines a JavaScipt Object Notation Number data type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.IJsonNumber.Value">
+            <summary>
+            Gets the value of the Json number.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.IPAddressConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Net.IPAddress"/>s into thier equivalent 
+            JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.IPAddressConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.IPAddressConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.IPAddressConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.IPAddressConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonTypeCode">
+            <summary>
+            Defines the different types of Json structures and primitives.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTypeCode.String">
+            <summary>
+            A unicode encoded string.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTypeCode.Number">
+            <summary>
+            A number.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTypeCode.Boolean">
+            <summary>
+            A boolean value represented by literal "true" and "false".
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTypeCode.Null">
+            <summary>
+            A null value.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTypeCode.Object">
+            <summary>
+            A structured object containing zero or more name/value pairs, delimited by 
+            curly brackets.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTypeCode.Array">
+            <summary>
+            An unordered collection of values, delimted by square brackets.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.IJsonBoolean">
+            <summary>
+            Defines a JavaScipt Object Notation Boolean data type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.IJsonBoolean.Value">
+            <summary>
+            Gets the value of the Json boolean.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.ExceptionConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Exception"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.ExceptionConverter.NameKey">
+            <summary>
+            Specifies the property in which the type name of the exception is placed. This field
+            is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.ExceptionConverter.MessageKey">
+            <summary>
+            Specifies the property in which the exception message is placed. This field
+            is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.ExceptionConverter.SourceKey">
+            <summary>
+            Specifies the property in which the exception source (target site) is placed. This field
+            is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.ExceptionConverter.InnerKey">
+            <summary>
+            Specifies the property in which any inner exceptions are converted and placed. This field 
+            is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.ExceptionConverter.StackTraceKey">
+            <summary>
+            Specifies the property in which the stack trace is placed. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.ExceptionConverter.Instance">
+            <summary>
+            Provides a default instance of the ExceptionConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.ExceptionConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.ExceptionConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.Deserializer_IncompleteContainer">
+            <summary>
+              Looks up a localized string similar to Unable to deserialize &quot;{0}&quot; as the container is missing a property or field named &quot;{1}&quot;..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.Deserializer_InvalidContainer">
+            <summary>
+              Looks up a localized string similar to Unable to deserialize &quot;{0}&quot; as the container is a &quot;{1}&quot; and not a &quot;{2}&quot;..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonConverter_CannotConvert">
+            <summary>
+              Looks up a localized string similar to Unable to convert object type of &quot;{0}&quot; to a JSON value..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonConverter_CannotConvertFrom">
+            <summary>
+              Looks up a localized string similar to Unable to convert JSON value of type &quot;{0}&quot; to target type of &quot;{1}&quot;.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_InvalidMethodCall">
+            <summary>
+              Looks up a localized string similar to Method must only be called when {0} is the next token..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_InvalidToken">
+            <summary>
+              Looks up a localized string similar to The character &quot;{0}&quot; does not start any valid token..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_InvalidTokenType">
+            <summary>
+              Looks up a localized string similar to A valid JsonTokenType must be specified..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedCharEscape">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed character escape..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedHex">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed hexadecimal character escape..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedJsonArray">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed Json-Array..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedJsonBoolean">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed Json-Boolean..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedJsonNull">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed Json-Null..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedJsonNumber">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed Json-Number..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedJsonObject">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed Json-Object..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MalformedJsonString">
+            <summary>
+              Looks up a localized string similar to The input contains a malformed Json-String..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonParser_MaxDepthExceeded">
+            <summary>
+              Looks up a localized string similar to The maximum depth of {0} has been exceeded..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.JsonUtils_MustBePrimitive">
+            <summary>
+              Looks up a localized string similar to Must be a Json primtive..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.Serializer_AlreadySeenObject">
+            <summary>
+              Looks up a localized string similar to &quot;{0}&quot; ({1}) has already been seen by this serializer and circular references are disallowed by the policy..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Messages.Serializer_NotSerializable">
+            <summary>
+              Looks up a localized string similar to Type &quot;{0}&quot; is not marked as being serializable..
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.PrimitiveConverter">
+            <summary>
+            Provides support for converting primitive .NET Framework data types into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.PrimitiveConverter.DateTimeFormat">
+            <summary>
+            Defines the <see cref="T:System.DateTime"/> format. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.PrimitiveConverter.Instance">
+            <summary>
+            Provides a default instance of the PrimitiveConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.PrimitiveConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.PrimitiveConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.PrimitiveConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.PrimitiveConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.CollectionConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Collections.ICollection"/>s into 
+            thier equivalent JavaScript Object Notation representation. This class cannot be 
+            inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.CollectionConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.CollectionConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.CollectionConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.CollectionConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonTokenType">
+            <summary>
+            Defines the Json lexical token types.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.BeginArray">
+            <summary>
+            Begin array token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.EndArray">
+            <summary>
+            End array token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.BeginObject">
+            <summary>
+            Begin object token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.EndObject">
+            <summary>
+            End object token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.ValueSeperator">
+            <summary>
+            Member seperator token
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.NameSeperator">
+            <summary>
+            Object property name / value seperator token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.String">
+            <summary>
+            Start of string token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.Number">
+            <summary>
+            Start of number token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.Boolean">
+            <summary>
+            Start of boolean token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.Null">
+            <summary>
+            Start of null token.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonTokenType.EOF">
+            <summary>
+            End of input token.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataRowViewConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.DataRowView"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataRowViewConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataRowViewConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonBoolean">
+            <summary>
+            Represents a JavaScript Object Notation Boolean data type. This class 
+            cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonBoolean.TrueString">
+            <summary>
+            Defines the Json true string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonBoolean.FalseString">
+            <summary>
+            Defines the Json false string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonBoolean.True">
+            <summary>
+            Defines a true JsonBoolean instance. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonBoolean.False">
+            <summary>
+            Defines a false JsonBoolean instance. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this Json type using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this JsonBoolean instance.
+            </summary>
+            <returns> <see cref="T:System.String"/> representation of this JsonBoolean instance</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the specified object is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Equals(AK.Net.Json.JsonBoolean)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            JsonBoolean.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Equals(AK.Net.Json.IJsonBoolean)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:AK.Net.Json.IJsonBoolean"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Equals(System.Boolean)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified bool is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>A hash code for this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Get(System.Boolean)">
+            <summary>
+            Returns a static JsonBoolean instance representing <paramref name="value"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>A static JsonBoolean instance representing <paramref name="value"/>.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.Equals(AK.Net.Json.JsonBoolean,AK.Net.Json.JsonBoolean)">
+            <summary>
+            Determines if the two <see cref="T:AK.Net.Json.JsonBoolean"/>s are
+            equal.
+            </summary>
+            <param name="a">The first JsonBoolean.</param>
+            <param name="b">The second JsonBoolean.</param>
+            <returns>True if the JsonBooleans are equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_True(AK.Net.Json.JsonBoolean)">
+            <summary>
+            True operator.
+            </summary>
+            <param name="a">The JsonBoolean.</param>
+            <returns>True if the JsonBoolean is true, otherwise false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_False(AK.Net.Json.JsonBoolean)">
+            <summary>
+            False operator.
+            </summary>
+            <param name="a">The JsonBoolean.</param>
+            <returns>True if the JsonBoolean is false, otherwise false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_Equality(AK.Net.Json.JsonBoolean,AK.Net.Json.JsonBoolean)">
+            <summary>
+            Equality operator.
+            </summary>
+            <param name="a">The first JsonBoolean.</param>
+            <param name="b">The second JsonBoolean.</param>
+            <returns>True if the JsonBooleans are equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_Inequality(AK.Net.Json.JsonBoolean,AK.Net.Json.JsonBoolean)">
+            <summary>
+            Inequality operator.
+            </summary>
+            <param name="a">The first JsonBoolean.</param>
+            <param name="b">The second JsonBoolean.</param>
+            <returns>True if the JsonBooleans are not equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_Implicit(System.Boolean)~AK.Net.Json.JsonBoolean">
+            <summary>
+            Implicit <see cref="T:System.Boolean"/> conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_Implicit(AK.Net.Json.JsonNull)~AK.Net.Json.JsonBoolean">
+            <summary>
+            Implicit <see cref="T:AK.Net.Json.JsonNull"/> conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns>This method always returns null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.op_Explicit(AK.Net.Json.JsonBoolean)~System.Boolean">
+            <summary>
+            Explicit <see cref="T:AK.Net.Json.JsonBoolean"/> conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonBoolean.#ctor(System.Boolean)">
+            <summary>
+            Initialises a new instance of the JsonBoolean class and specifies the 
+            value.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:AK.Net.Json.JsonBoolean.Value">
+            <summary>
+            Gets the value of this JsonBoolean.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataSetConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.DataSet"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataSetConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataSetConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DataRowConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Data.DataRow"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataRowConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DataRowConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.JsonNumber">
+            <summary>
+            Represents a JavaScript Object Notation Number data type. This class cannot 
+            be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonNumber.MinValue">
+            <summary>
+            Defines the smallest Json number. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonNumber.Zero">
+            <summary>
+            Defines a Json number with a value of zero. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonNumber.MaxValue">
+            <summary>
+            Defines the lasrgest Json number. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.Byte)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.SByte)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.Int16)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.UInt16)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.Int32)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.UInt32)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.Int64)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.UInt64)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.Decimal)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>        
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.#ctor(System.Double)">
+            <summary>
+            Initialises a new instance of the JsonNumber class and specifies the 
+            value.
+            </summary>
+            <param name="value">The value of the new instance.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this Json type using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this JsonNumber instance.
+            </summary>
+            <returns> <see cref="T:System.String"/> representation of this JsonNumber instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this JsonNumber instance.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="formatProvider">The culture specific format provider.</param>
+            <returns> <see cref="T:System.String"/> representation of this JsonNumber instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the specified object is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.Equals(AK.Net.Json.JsonNumber)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            JsonNumber.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.Equals(AK.Net.Json.IJsonNumber)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:AK.Net.Json.IJsonNumber"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.Equals(System.Double)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.Double"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified double is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.CompareTo(AK.Net.Json.JsonNumber)">
+            <summary>
+            Returns a value indicating equality with the specified instance.
+            </summary>
+            <param name="other">The JsonNumber to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.CompareTo(AK.Net.Json.IJsonNumber)">
+            <summary>
+            Returns a value indicating equality with the specified instance.
+            </summary>
+            <param name="other">The <see cref="T:AK.Net.Json.IJsonNumber"/> to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.CompareTo(System.Double)">
+            <summary>
+            Returns a value indicating equality with the specified <see cref="T:System.Double"/>.
+            </summary>
+            <param name="other">The Double to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>A hash code for this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.Equals(AK.Net.Json.JsonNumber,AK.Net.Json.JsonNumber)">
+            <summary>
+            Determines if the two <see cref="T:AK.Net.Json.JsonNumber"/>s are
+            equal.
+            </summary>
+            <param name="a">The first JsonNumber.</param>
+            <param name="b">The second JsonNumber.</param>
+            <returns>True if the JsonNumbers are equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Equality(AK.Net.Json.JsonNumber,AK.Net.Json.JsonNumber)">
+            <summary>
+            Equality operator.
+            </summary>
+            <param name="a">The first JsonNumber.</param>
+            <param name="b">The second JsonNumber.</param>
+            <returns>True if the JsonNumbers are equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Inequality(AK.Net.Json.JsonNumber,AK.Net.Json.JsonNumber)">
+            <summary>
+            Inequality operator.
+            </summary>
+            <param name="a">The first JsonNumber.</param>
+            <param name="b">The second JsonNumber.</param>
+            <returns>True if the JsonNumbers are not equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.Byte)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.SByte)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.Int16)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.UInt16)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.Int32)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.UInt32)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.Int64)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.UInt64)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(System.Double)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implict conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Implicit(AK.Net.Json.JsonNull)~AK.Net.Json.JsonNumber">
+            <summary>
+            Implicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns>This method always returns null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.Double">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.Byte">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.SByte">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.Int16">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.UInt16">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.Int32">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.UInt32">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.Int64">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNumber.op_Explicit(AK.Net.Json.JsonNumber)~System.UInt64">
+            <summary>
+            Explicit conversion operator.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AK.Net.Json.JsonNumber.Value">
+            <summary>
+            Gets the value of this JsonNumber.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.JsonNull">
+            <summary>
+            Represents a Json null value. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonNull.NullString">
+            <summary>
+            Defines the JsonNull string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.JsonNull.Null">
+            <summary>
+            Defines the JsonNull instance. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this Json type using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this JsonNull instance.
+            </summary>
+            <returns> <see cref="T:System.String"/> representation of this JsonNull instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the specified object is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.Equals(AK.Net.Json.JsonNull)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            JsonNull.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.Equals(AK.Net.Json.IJsonNull)">
+            <summary>
+            Returns a value indicating whether this instance is equal to the specified
+            <see cref="T:AK.Net.Json.IJsonNull"/>.
+            </summary>
+            <param name="other">The value to compare.</param>
+            <returns>True if the specified instance is equal to this instance, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>A hash code for this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.Map``1(AK.Net.Json.IJsonType)">
+            <summary>
+            Maps the specified value to the type of the type parameter.
+            </summary>
+            <typeparam name="T">The type to map to.</typeparam>
+            <param name="value">The value to map.</param>
+            <returns>The mapped value if not logically null, otherwise the default value of 
+            <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.JsonNull.#ctor">
+            <summary>
+            Initialises a new instance of the JsonNull class.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.JsonNotSerializedAttribute">
+            <summary>
+            When applied to a field or property, indicates that the serializer should not
+            serialize the member. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.JsonSerializer">
+            <summary>
+            Provides static methods for converting .NET Framework data types into thier equivalent 
+            JavaScript Object Notation representation.
+            </summary>        
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes and returns the JavaScript Object Notation representation of the 
+            specified object.
+            </summary>
+            <param name="graph">The object to serialize.</param>
+            <returns>The serialized object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonSerializer.Deserialize(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Converts the specified JavaScript Object Notation datatype into the specified
+            target type.
+            </summary>
+            <param name="value">The IJsonType containing the serialized data.</param>        
+            <param name="targetType">The target type after conversion.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonSerializer.Deserialize``1(AK.Net.Json.IJsonType)">
+            <summary>
+            Converts the specified JavaScript Object Notation datatype into the specified
+            target type.
+            </summary>
+            <param name="value">The IJsonType containing the serialized data.</param>       
+            <typeparam name="T">The target type after conversion.</typeparam>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonSerializer.CreateSerializer">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for serialising objects.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonSerializer.CreateDeserializer">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/> specifically 
+            for deserialising objects.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.JsonSerializer.GetFactory">
+            <summary>
+            Returns the factory used to create 
+            <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>s.
+            </summary>
+            <returns>The factory used to create 
+            <see cref="T:AK.Net.Json.Conversion.IJsonSerializer"/>s.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Conversion.Converters.DictionaryConverter">
+            <summary>
+            Provides support for converting <see cref="T:System.Collections.IDictionary"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.DictionaryConverter.KeyKey">
+            <summary>
+            Defines the key property key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Conversion.Converters.DictionaryConverter.ValueKey">
+            <summary>
+            Defines the value property key. This field is constant.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DictionaryConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if the converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DictionaryConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DictionaryConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Conversion.Converters.DictionaryConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+    </members>
+</doc>

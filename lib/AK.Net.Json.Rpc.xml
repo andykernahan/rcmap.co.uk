@@ -1,0 +1,2895 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AK.Net.Json.Rpc</name>
+    </assembly>
+    <members>
+        <member name="T:AK.Net.Json.Rpc.RpcUtility">
+            <summary>
+            Provides static utility methods for the <see cref="N:AK.Net.Json.Rpc"/> namespace.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.IdKey">
+            <summary>
+            Defines the "id" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.CodeKey">
+            <summary>
+            Defines the "code" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.NameKey">
+            <summary>
+            Defines the "name" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.TypeKey">
+            <summary>
+            Defines the "type" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.HelpKey">
+            <summary>
+            Defines the "help" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.DescriptionKey">
+            <summary>
+            Defines the "desc" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.ProceduresKey">
+            <summary>
+            Defines the "procs" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.ErrorKey">
+            <summary>
+            Defines the "error" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.MethodKey">
+            <summary>
+            Defines the "method" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.ParametersKey">
+            <summary>
+            Defines the "params" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.ReturnKey">
+            <summary>
+            Defines the "return" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.ResultKey">
+            <summary>
+            Defines the "result" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.SummaryKey">
+            <summary>
+            Defines the "summary" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.VersionKey">
+            <summary>
+            Defines the "version" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.AddressKey">
+            <summary>
+            Defines the "address" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.MessageKey">
+            <summary>
+            Defines the "message" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.IdempotentKey">
+            <summary>
+            Defines the "idempotent" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.ServiceDescriptorVersionKey">
+            <summary>
+            Defines the "sdversion" key. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcVersion_1_1">
+            <summary>
+            Defines the JSON-RPC version implemented by this library. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeBoolean">
+            <summary>
+            Defines the JSON-RPC Boolean type string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeNumber">
+            <summary>
+            Defines the JSON-RPC Number type string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeString">
+            <summary>
+            Defines the JSON-RPC String type string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeArray">
+            <summary>
+            Defines the JSON-RPC Array type string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeObject">
+            <summary>
+            Defines the JSON-RPC Object type string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeAny">
+            <summary>
+            Defines the JSON-RPC Any type string. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcUtility.RpcTypeVoid">
+            <summary>
+            Defines the JSON-RPC Void type string. This field is constant.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcUtility.GetRpcTypeCodeFromType(System.Type)">
+            <summary>
+            Returns the JSON-RPC type for the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The type to map.</param>
+            <returns>The JSON-RPC type for the specified <see cref="T:System.Type"/>.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcUtility.GetTypeFromRpcTypeCode(AK.Net.Json.Rpc.RpcTypeCode)">
+            <summary>
+            Returns the equivalent JSON <see cref="T:System.Type"/> for the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> enumerated value.
+            </summary>
+            <param name="type">The RpcTypeCode.</param>
+            <returns>The <see cref="T:System.Type"/> representation of the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> enumerated value.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcUtility.ParseRpcTypeCode(System.String)">
+            <summary>
+            Parses a <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> from the specified 
+            <see cref="T:System.String"/>.
+            </summary>
+            <param name="s">The string to parse.</param>
+            <returns>A <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> value parsed from the 
+            specified <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcUtility.ToString(AK.Net.Json.Rpc.RpcTypeCode)">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> enumerated value.
+            </summary>
+            <param name="type">The RpcTypeCode.</param>
+            <returns>A <see cref="T:System.String"/> representation of the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> enumerated value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.IRpcService">
+            <summary>
+            Defines a JSON-RPC service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.IRpcService.Descriptor">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> for the service.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.AddressMustBeAbsolute">
+            <summary>
+              Looks up a localized string similar to Specified address must be absolute..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.DuplicateRpcMethodException">
+            <summary>
+              Looks up a localized string similar to A method with the name &quot;{0}&quot; is defined more than once in service &quot;{1}&quot; with the same parameter count..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.DuplicateRpcParameterException">
+            <summary>
+              Looks up a localized string similar to A parameter with the name &quot;{0}&quot; is defined more than once in method &quot;{1}&quot; in service &quot;{2}&quot;..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.MustBeNonEmptyString">
+            <summary>
+              Looks up a localized string similar to Cannot be an empty string..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.ReadOnlyDictionary_CollectionReadonly">
+            <summary>
+              Looks up a localized string similar to This collection is readonly and cannot be modified..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.ReflectiveRpcMethodInfo_NotAnRpcMethod">
+            <summary>
+              Looks up a localized string similar to Specified method is not marked as an JSON-RPC method..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.ReflectiveRpcServiceInfo_NotAnRpcService">
+            <summary>
+              Looks up a localized string similar to Specified type is not marked as being an JSON-RPC service..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcCall_CantParseFromContainer">
+            <summary>
+              Looks up a localized string similar to Unable to parse RpcCall from container..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcCall_CantParseFromInput">
+            <summary>
+              Looks up a localized string similar to Unable to parse RpcCall from input..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcCall_CantParseFromUri">
+            <summary>
+              Looks up a localized string similar to Unable to parse RpcCall from Uri..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcCall_InvalidParameterType">
+            <summary>
+              Looks up a localized string similar to Must either be an IJsonArray or an IJsonObject..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcError_CantParseFromContainer">
+            <summary>
+              Looks up a localized string similar to Unable to parse RpcError from container..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcParameterAttribute_InvalidRpcType">
+            <summary>
+              Looks up a localized string similar to Type code must not be RpcTypeCode.Void or RpcTypeCode.Invalid..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcResponse_CantParseFromContainer">
+            <summary>
+              Looks up a localized string similar to Unable to parse RpcResponse from container..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcResponse_CantParseFromInput">
+            <summary>
+              Looks up a localized string similar to Unable to parse RpcResponse from input..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcServiceAttribute_MalformedAddress">
+            <summary>
+              Looks up a localized string similar to Specified address must be well formed..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcServiceDescriptor_InvalidAddressScheme">
+            <summary>
+              Looks up a localized string similar to Specified address must be either HTTP or HTTPS..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.RpcUtility_InvalidRpcTypeCode">
+            <summary>
+              Looks up a localized string similar to A valid RpcTypeCode must be speciifed..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.SdRpcMethodInfo_CantParseFromContainer">
+            <summary>
+              Looks up a localized string similar to Unable to parse SdRpcMethodInfo from descriptor container as it is missing the required &quot;name&quot; property..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.SdRpcParameterInfo_ContainerMissingName">
+            <summary>
+              Looks up a localized string similar to Unable to parse SdRpcParameterInfo from descriptor container as it is missing the required &quot;name&quot; property..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.SdRpcServiceInfo_ContainerMissingId">
+            <summary>
+              Looks up a localized string similar to Unable to parse SdRpcServiceInfo from descriptor container as it is missing the required &quot;id&quot; property..
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Messages.SdRpcServiceInfo_ContainerMissingName">
+            <summary>
+              Looks up a localized string similar to Unable to parse SdRpcServiceInfo from descriptor container as it is missing the required &quot;name&quot; property..
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.Proxy.Handlers.JavaScriptProxyHandler">
+            <summary>
+            Generates JavaScript proxies for <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/>s.
+            This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler">
+            <summary>
+            Provides a useful base class for a 
+            <see cref="T:AK.Net.Json.Rpc.Http.Proxy.IRpcProxyHandler"/>. This class is 
+            abstract.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.Proxy.IRpcProxyHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.IRpcProxyHandler.GenerateProxy(AK.Net.Json.Rpc.RpcServiceDescriptor,System.Web.HttpContext)">
+            <summary>
+            Generates a proxy for the specified <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/>.
+            </summary>
+            <param name="service">The RpcServiceDescriptor of the service.</param>
+            <param name="context">The request context.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.GenerateProxy(AK.Net.Json.Rpc.RpcServiceDescriptor,System.Web.HttpContext)">
+            <summary>
+            Processes the request.
+            </summary>
+            <param name="context">The request context.</param>  
+            <param name="service">The service the request is targeted at.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.GenerateProxyImpl">
+            <summary>
+            When overriden in a derived class, processes the underlying request.
+            </summary>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Write(System.String)">
+            <summary>
+            Writes the specified string to the <see cref="T:System.Web.HttpResponse"/>.
+            </summary>
+            <param name="s">The string to write.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Write(System.String,System.Object)">
+            <summary>
+            Writes the resultant string using the specified format and format argument.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="arg0">The first format argument.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Write(System.String,System.Object,System.Object)">
+            <summary>
+            Writes the resultant string using the specified format and format arguments.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="arg0">The first format argument.</param>
+            <param name="arg1">The second format argument.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Write(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes the resultant string using the specified format and format arguments.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="arg0">The first format argument.</param>
+            <param name="arg1">The second format argument.</param>
+            <param name="arg2">The third format argument.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Write(System.String,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes the resultant string using the specified format and format arguments.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="arg0">The first format argument.</param>
+            <param name="arg1">The second format argument.</param>
+            <param name="arg2">The third format argument.</param>
+            <param name="arg3">The fourth format argument.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Write(System.String,System.Object[])">
+            <summary>
+            Writes the resultant string using the specified format and format arguments.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The format arguments.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.WriteNewLine">
+            <summary>
+            Writes a newline.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Context">
+            <summary>
+            Gets or sets the <see cref="T:System.Web.HttpContext"/> of the request.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Service">
+            <summary>
+            Gets or sets the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> of the request
+            is targeted at.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Response">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpResponse"/> to the request.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.Proxy.RpcProxyHandler.Request">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.Handlers.JavaScriptProxyHandler.GenerateProxyImpl">
+            <summary>
+            Processes the underlying request.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcMethodFlags">
+            <summary>
+            Specifies the flags to apply to a JSON-RPC service method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcMethodFlags.None">
+            <summary>
+            Indicates no flags are applied to the method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcMethodFlags.Idempotent">
+            <summary>
+            Indicates the method is safe to invoke over a HTTP GET. 
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcMethodFlags.Hidden">
+            <summary>
+            Indicates the method should not be listed in the service description object and 
+            therefore not returned in "system.describe".
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcCallConverter">
+            <summary>
+            Provides support for converting <see cref="T:AK.Net.Json.Rpc.RpcCall"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcCallConverter.Instance">
+            <summary>
+            Provides a default instance of the RpcCallConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCallConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCallConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCallConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCallConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcErrorConverter">
+            <summary>
+            Provides support for converting <see cref="T:AK.Net.Json.Rpc.RpcError"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorConverter.Instance">
+            <summary>
+            Provides a default instance of the RpcErrorConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcErrorConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcErrorConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcErrorConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcErrorConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcService">
+            <summary>
+            Defines a base class for a JSON-RPC service. This class is abstract.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.SystemDescribe">
+            <summary>
+            Implements the "system.describe" command and returns the service descriptor.
+            </summary>
+            <returns>The service descriptor.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.SystemListMethods">
+            <summary>
+            Implements the "system.listMethods" command and returns a list of the methods
+            exposed by this service.
+            </summary>
+            <returns>A list of methods exposed by this service.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.SystemVersion">
+            <summary>
+            Implements the "system.version" command and returns the version of this service.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.SystemMulticall(AK.Net.Json.Rpc.RpcCall[])">
+            <summary>
+            Implements the "system.multicall" command and processes the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcCall"/> and returns the 
+            <see cref="T:AK.Net.Json.Rpc.RpcResponse"/>s.
+            </summary>
+            <param name="calls">The RpcCalls to process.</param>
+            <returns>The RpcResponses to the specified RpcCalls.</returns>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcService.UnexpectedError">
+            <summary>
+            Defines an RpcError which specifies that an unexpected error occurred during processing
+            of the call. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcService.ParseError">
+            <summary>
+            Defines an RpcError which specifies that the JSON-RPC call container was incorrectly
+            formatted and could not be parsed. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcService.ServiceUnavailableError">
+            <summary>
+            Defines an RpcError which specifies that the targeted service is unavailable. This field 
+            is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcService.NoSuchMethodError">
+            <summary>
+            Defines an RpcError which specifies that no such method is exposed by the JSON-RPC service. 
+            This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcService.CallVersionNotSupported">
+            <summary>
+            Defines an RpcError which specifies that the JSON-RPC call version is not supported by this
+            JSON-RPC service. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcService.CallNotificationNotSupported">
+            <summary>
+            Defines an RpcError which specifies that the JSON-RPC is a notification call which are 
+            not supported by this JSON-RPC service. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.ProcessRequest(AK.Net.Json.Rpc.IRpcTransport)">
+            <summary>
+            Services the request represented by the specified transport.
+            </summary>
+            <param name="transport">The request transport.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.ValidateRequest(AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Validates the current request context and returns a value indicating if processing 
+            should continue.
+            </summary>
+            <param name="error">If validation fails, this parameter will contain information
+            detailing the validation failure.</param>
+            <returns>True if the request is valid and processing should continue, otherwise; 
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.ParseCall(System.IO.TextReader,AK.Net.Json.Rpc.RpcCall@,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Parses the <see cref="T:AK.Net.Json.Rpc.RpcCall"/> from the specified
+            <see cref="T:System.IO.TextReader"/> and returns a value indicating success.        
+            </summary>
+            <param name="input">The input TextReader.</param>
+            <param name="call">If parsing succeeds, this parameter will contain the parsed RpcCall.</param>
+            <param name="error">If parsing fails, this parameter will contain information detailing the 
+            parse failure.</param>
+            <returns>True if the RpcCall was parsed sucessfully, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.ProcessCall(AK.Net.Json.Rpc.RpcCall)">
+            <summary>
+            Processes the specifed <see cref="T:AK.Net.Json.Rpc.RpcCall"/> and returns the
+            <see cref="T:AK.Net.Json.Rpc.RpcResponse"/>.
+            </summary>
+            <param name="call">The RpcCall to process.</param>
+            <returns>The RpcResponse to the specified RpcCall.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.ValidateCall(AK.Net.Json.Rpc.RpcCall,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Validates the specified <see cref="T:AK.Net.Json.Rpc.RpcCall"/> in the current 
+            request context and returns a value indicating if further processing should continue.
+            </summary>
+            <param name="call">The call to validate.</param>
+            <param name="error">If validation fails, this parameter will contain information
+            detailing the validation failure.</param>
+            <returns>True if the call is valid and processing should continue, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.ValidateMethod(AK.Net.Json.Rpc.RpcMethodDescriptor,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Validates the specified <see cref="T:AK.Net.Json.Rpc.RpcMethodDescriptor"/> in the current 
+            request context and returns a value indicating if further processing should continue.
+            </summary>
+            <param name="method">The method to validate.</param>
+            <param name="error">If validation fails, this parameter will contain information
+            detailing the validation failure.</param>
+            <returns>True if the method is valid and processing should continue, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.InvokeMethod(AK.Net.Json.Rpc.RpcMethodDescriptor,AK.Net.Json.IJsonType,AK.Net.Json.IJsonType@,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Transposes the specifed <paramref name="parameters"/>, invokes the underlying method 
+            implementation and returns a value indicating if an error occurred.
+            </summary>
+            <param name="method">The method.</param>        
+            <param name="parameters">The call parameters.</param>
+            <param name="result">If the operation succeeds, this parameter will contain the result
+            of the method invocation.</param>
+            <param name="error">If the operation fails, this parameter will contain information
+            detailing the failure.</param>
+            <returns>True if the method was sucessfully invoked, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcService.WriteResponse(AK.Net.Json.Rpc.RpcResponse,System.IO.TextWriter)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.Rpc.RpcResponse"/> to the 
+            specified <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+            <param name="output">The output TextWriter.</param>
+            <param name="response">The RpcResponse representing the result of the JSON-RPC call.</param>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcService.Descriptor">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> for this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcService.Binder">
+            <summary>
+            Gets or sets the <see cref="T:AK.Net.Json.Rpc.IRpcBinder"/> for this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcService.Log">
+            <summary>
+            Gets the <see cref="T:log4net.ILog"/> for this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcService.IsDebugEnabled">
+            <summary>
+            Gets a value indicating is debugging for this service is enabled.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.HttpRpcService">
+            <summary>
+            Defines a base class for a HTTP JSON-RPC service. This class is abstract.
+            </summary>    
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.IHttpRpcService">
+            <summary>
+            Defines a HTTP JSON-RPC service.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcService.JsonMimeType">
+            <summary>
+            Defines the "application/json" MIME type. This field is constant.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcService.JsonEncoding">
+            <summary>
+            Gets the default <see cref="T:System.Text.Encoding"/> used to encode JSON text 
+            over HTTP. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcService.UnsafeHttpMethodError">
+            <summary>
+            Defines an RpcError which specifies that the targeted method is not safe to invoke
+            over HTTP GET. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcService.MaxRequestSizeExceededError">
+            <summary>
+            Defines an RpcError which specifies that the request size has exceeded the maximum
+            allowed. This field is readonly.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcService.InvalidHttpRequestMethodError">
+            <summary>
+            Defines an RpcError which specifies that the method of the HTTP request is not valid
+            to invoke the JSON-RPC service. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.HttpRpcService.ParseCall(System.IO.TextReader,AK.Net.Json.Rpc.RpcCall@,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Parses the <see cref="T:AK.Net.Json.Rpc.RpcCall"/> from the specified
+            <see cref="T:System.IO.TextReader"/> and returns a result indicating success.        
+            </summary>
+            <param name="input">The input TextReader.</param>
+            <param name="call">The parsed RpcCall.</param>
+            <param name="error">If parsing fails, this parameter will contain information
+            detailing the parse failure.</param>
+            <returns>True if the RpcCall was parsed sucessfully, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.HttpRpcService.WriteResponse(AK.Net.Json.Rpc.RpcResponse,System.IO.TextWriter)">
+            <summary>
+            Writes the specified <see cref="T:AK.Net.Json.Rpc.RpcResponse"/> to the 
+            specified <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+            <param name="response">The RpcResponse representing the result of the JSON-RPC call.</param>
+            <param name="output">The output TextWriter.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.HttpRpcService.ValidateRequest(AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Validates the current request context and returns a value indicating if processing 
+            should continue.
+            </summary>
+            <param name="error">If validation fails, this parameter will contain information
+            detailing the validation failure.</param>
+            <returns>True if the request is valid and processing should continue, otherwise; 
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.HttpRpcService.ValidateMethod(AK.Net.Json.Rpc.RpcMethodDescriptor,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Validates the specified method in the current request context and returns a value 
+            indicating if further processing should continue.
+            </summary>
+            <param name="method">The method to validate.</param>
+            <param name="error">If validation fails, this parameter will contain information
+            detailing the validation failure.</param>
+            <returns>True if the method is valid and processing should continue, otherwise;
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.HttpRpcService.GetHttpStatusCode(AK.Net.Json.Rpc.RpcResponse)">
+            <summary>
+            Returns the HTTP status code representing the result of the specified 
+            <see cref="T:AK.Net.Json.Rpc.RpcResponse"/>.
+            </summary>
+            <param name="response">The RpcResponse.</param>
+            <returns>The HTTP status code representing the result of the RpcResponse.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcService.Context">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpContext"/> of the request being processed by 
+            this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcService.Request">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpRequest"/> being processed by this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcService.Response">
+            <summary>
+            Gets the <see cref="T:System.Web.HttpResponse"/> to the request being processed
+            by this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcService.HttpMethod">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.Http.HttpRpcMethod"/> used to
+            invoke this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcService.IsDebugEnabled">
+            <summary>
+            Gets a value indicating is debugging for this service is enabled.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.HttpRpcMethod">
+            <summary>
+            Indicates the HTTP method used to send a JSON-RPC call.
+            </summary>    
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcMethod.Post">
+            <summary>
+            HTTP POST method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcMethod.Get">
+            <summary>
+            HTTP GET method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.Http.HttpRpcMethod.Other">
+            <summary>
+            Another HTTP method was used.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcTypeCode">
+            <summary>
+            Defines the limited JSON-RPC types for parameter descriptors.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.String">
+            <summary>
+            A unicode encoded string.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Number">
+            <summary>
+            A number.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Boolean">
+            <summary>
+            A boolean value represented by literal "true" and "false".
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Object">
+            <summary>
+            A structured object containing zero or more name/value pairs, delimited by 
+            curly brackets.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Array">
+            <summary>
+            An unordered collection of values, delimted by square brackets.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Any">
+            <summary>
+            A Boolean, Number, String, Object or Array.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Void">
+            <summary>
+            None (nil).
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcTypeCode.Invalid">
+            <summary>
+            An invalid RpcTypeCode.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcServiceDescriptor">
+            <summary>
+            Describes a JSON-RPC service and provides access to the service's metadata.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcServiceDescriptor.ServiceDescriptorVersion">
+            <summary>
+            Specifies the JSON-RPC service descriptor represented by 
+            <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.#ctor(AK.Net.Json.Rpc.IRpcServiceInfo)">
+            <summary>
+            Initialises a new instance of the RpcServiceDescriptor class and specifies
+            the service to describe.
+            </summary>
+            <param name="service">The the service to describe.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this instance using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.HasFlags(AK.Net.Json.Rpc.RpcServiceFlags)">
+            <summary>
+            Returns a value indicating if this service has been applied the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcServiceFlags"/>.
+            </summary>
+            <param name="flags">The flags to test.</param>
+            <returns>True if this service has been applied with the specified flags, otherwise; 
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.Equals(System.Object)">
+            <summary>
+            Returns a value indicating equality with the specified object.
+            </summary>
+            <param name="obj">The other object.</param>
+            <returns>True if the objects are considered equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.Equals(AK.Net.Json.Rpc.RpcServiceDescriptor)">
+            <summary>
+            Returns a value indicating equality with another RpcServiceDescriptor instance.
+            </summary>
+            <param name="other">The other instance.</param>
+            <returns>True if the instances are considered equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.GetHashCode">
+            <summary>
+            Returns hashcode based on the values of this instance.
+            </summary>
+            <returns>A hashcode based on the values of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.GetDescriptor(System.Type)">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> for the specified
+            service type.
+            </summary>
+            <param name="serviceType">The service type.</param>
+            <returns>The <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> for the specified
+            service type.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.GetDescriptor(System.Uri)">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> for the HTTP JSON-RPC 
+            service located at the specified address.
+            </summary>
+            <param name="serviceAddr">The service address.</param>
+            <returns>The <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> for the HTTP JSON-RPC 
+            service located at the specified address.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptor.BuildJsonDescriptor">
+            <summary>
+            Builds a JSON service descriptor object based on the values of this descriptor.
+            </summary>
+            <returns>A JSON service descriptor object.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Id">
+            <summary>
+            Gets the global identifier for the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Name">
+            <summary>
+            Gets the name of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Address">
+            <summary>
+            Gets the address of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.AddressUri">
+            <summary>
+            Gets the address of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Summary">
+            <summary>
+            Gets a short description of the service that the service provides.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.HelpUrl">
+            <summary>
+            Gets a Url as to where more documentation of the service is located.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Version">
+            <summary>
+            Gets internal version of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.HasMethods">
+            <summary>
+            Gets a value indicating if this service exposes any methods.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.MaxRequestSize">
+            <summary>
+            Gets the maximum request size, in bytes, that this services accepts before a
+            <see cref="T:AK.Net.Json.Rpc.RpcError"/> is sent to the client indicating
+            a bad Rpc call.        
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Methods">
+            <summary>
+            Gets the collection of methods exposed by this service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.Flags">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcServiceFlags"/> applied to the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceDescriptor.JsonDescriptor">
+            <summary>
+            Gets the JSON service descriptor object for this service.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.IRpcMethodInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcMethodFlags"/> applied to the method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetHelpUrl">
+            <summary>
+            Returns a Url as to where more documentation of the method can be found.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetName">
+            <summary>
+            Returns the name of the method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetParameters">
+            <summary>
+            Returns the collection of parameters in the method's signature.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetClrReturnType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetRpcReturnType">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcMethodInfo.GetSummary">
+            <summary>
+            Returns a short description of the service that the method provides.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcProxyGeneratorSection">
+            <summary>
+            Represents the proxy configuration section within an application configuration file.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcProxyGeneratorSection.GetSection">
+            <summary>
+            Helper method to retrieve the RpcProxyGeneratorSection from it's default location.
+            </summary>
+            <returns>The RpcProxyGeneratorSection.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyGeneratorSection.ServiceIdParameter">
+            <summary>
+            Gets or sets the name of the query string parameter used to specifiy the service Id. The default
+            value is "s".
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyGeneratorSection.HandlerIdParameter">
+            <summary>
+            Gets or sets the name of the query string parameter used to specifiy the handler Id. The default
+            value is "h".
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyGeneratorSection.Enabled">
+            <summary>
+            Gets or sets a value indicating if the proxy generator is enabled. The default value is true.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyGeneratorSection.Handlers">
+            <summary>
+            Gets or sets the collection of 
+            <see cref="T:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement"/>s.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcParameterDescriptorConverter">
+            <summary>
+            Provides support for converting <see cref="T:AK.Net.Json.Rpc.RpcParameterDescriptor"/>s 
+            into thier equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcParameterDescriptorConverter.Instance">
+            <summary>
+            Provides a default instance of the RpcServiceDescriptorConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptorConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptorConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC method using reflection 
+            information. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.#ctor(System.Reflection.MethodInfo)">
+            <summary>
+            Initialises a new instance of the ReflectiveRpcMethodInfo class and specifies
+            the <see cref="T:System.Reflection.MethodInfo"/> of the method to reflect on.
+            </summary>
+            <param name="method">The method.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcMethodFlags"/> applied to the method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetHelpUrl">
+            <summary>
+            Returns a Url as to where more documentation of the method can be found.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetName">
+            <summary>
+            Returns the name of the method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetParameters">
+            <summary>
+            Returns the collection of parameters in the method's signature.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetClrReturnType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetRpcReturnType">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcMethodInfo.GetSummary">
+            <summary>
+            Returns a short description of the service that the method provides.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcMethodDescriptorConverter">
+            <summary>
+            Provides support for converting <see cref="T:AK.Net.Json.Rpc.RpcMethodDescriptor"/>s into 
+            thier equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcMethodDescriptorConverter.Instance">
+            <summary>
+            Provides a default instance of the RpcServiceDescriptorConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptorConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptorConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement">
+            <summary>
+            Represents a proxy handler configuration element.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement.Key">
+            <summary>
+            Gets the key for the handler.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement.TypeName">
+            <summary>
+            Gets the handler type name.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement.Version">
+            <summary>
+            Gets the version of the handler. The default value is "0.0.0.0".
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement.HandlerType">
+            <summary>
+            Gets the handler <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcServiceDescriptorConverter">
+            <summary>
+            Provides support for converting <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/>s into 
+            thier equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcServiceDescriptorConverter.Instance">
+            <summary>
+            Provides a default instance of the RpcServiceDescriptorConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptorConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceDescriptorConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.SdRpcParameterInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC parameter using a JSON-RPC
+            parameter descriptor object. This class cannot be inheritied.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.IRpcParameterInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetClrType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetDefaultValue">
+            <summary>
+            Returns the default value of this parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetDescription">
+            <summary>
+            Returns a description of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcParameterFlags"/> applied to the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetName">
+            <summary>
+            Returns the name of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetPosition">
+            <summary>
+            Returns the position of the parameter within the procedure's signature.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcParameterInfo.GetRpcType">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.#ctor(AK.Net.Json.IJsonObject,System.Int32)">
+            <summary>
+            Initialises a new instance of the SdRpcParameterInfo class and specifies
+            the parameter descriptor object containing parameter metadata.
+            </summary>
+            <param name="descriptor">The parameter descriptor object.</param>
+            <param name="position">The position of the parameter within the method's signature.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetClrType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetDefaultValue">
+            <summary>
+            Returns the default value of this parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetDescription">
+            <summary>
+            Returns a description of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcParameterFlags"/> applied to the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetName">
+            <summary>
+            Returns the name of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetPosition">
+            <summary>
+            Returns the position of the parameter within the procedure's signature.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcParameterInfo.GetRpcType">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the parameter.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcServiceElement">
+            <summary>
+            Represents a service configuration element.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceElement.Id">
+            <summary>
+            Gets the Id of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceElement.TypeName">
+            <summary>
+            Gets the service type name.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceElement.ServiceType">
+            <summary>
+            Gets the service <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceElement.ServiceDescriptor">
+            <summary>
+            Gets the service <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/>.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElementCollection">
+            <summary>
+            Represents a collections of 
+            <see cref="T:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement"/>s.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElementCollection.#ctor">
+            <summary>
+            Intialises a new instance of the RpcProxyHandlerElementCollection class.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElementCollection.GetElementByKey(System.String)">
+            <summary>
+            Gets a configuration element by the specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The ket of the element.</param>
+            <returns>The element with the specified key if found, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElementCollection.CreateNewElement">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement"/> 
+            configuration element.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElement"/>  
+            configuration element.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the key for the specified configuration element.
+            </summary>
+            <param name="element">The configuration element.</param>
+            <returns>The key for the specified configuration element.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcProxyHandlerElementCollection.ThrowOnDuplicate">
+            <summary>
+            Gets a value indicating if duplicate configurations elements should result in a
+            <see cref="T:System.Configuration.ConfigurationException"/> being thrown.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.DuplicateRpcMethodException">
+            <summary>
+            The exception that is thrown when a service defines more than one method with
+            the same name and signature. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DuplicateRpcMethodException.#ctor(AK.Net.Json.Rpc.RpcMethodDescriptor)">
+            <summary>
+            Inialises a new instance of the DuplicateRpcMethodException class.
+            </summary>
+            <param name="method">The duplicate method.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DuplicateRpcMethodException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialization constructor.
+            </summary>
+            <param name="info">The object containing the serialized information.</param>
+            <param name="context">The context of the serialization,</param>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.IRpcServiceInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetAddress">
+            <summary>
+            Returns the address of the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcServiceFlags"/> applied to the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetHelpUrl">
+            <summary>
+            Returns a Url as to where more documentation of the service is located.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetId">
+            <summary>
+            Returns the global identifier for the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetMaxRequestSize">
+            <summary>
+            Returns the maximum request size, in bytes, that this services accepts before a
+            <see cref="T:AK.Net.Json.Rpc.RpcError"/> is sent to the client indicating
+            a bad Rpc call.        
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetMethods">
+            <summary>
+            Returns the collection of methods exposed by the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetName">
+            <summary>
+            Returns the name of the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetSummary">
+            <summary>
+            Returns a short description of the service that the service provides.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcServiceInfo.GetVersion">
+            <summary>
+            Returns internal version of the service.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.SdRpcServiceInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC service using a JSON-RPC
+            service descriptor object. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.#ctor(AK.Net.Json.IJsonObject)">
+            <summary>
+            Initialises a new instance of the SdRpcServiceInfo class and specifies
+            the service descriptor object containing service metadata.
+            </summary>
+            <param name="descriptor">The service descriptor object.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetAddress">
+            <summary>
+            Returns the address of the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcServiceFlags"/> applied to the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetHelpUrl">
+            <summary>
+            Returns a Url as to where more documentation of the service is located.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetId">
+            <summary>
+            Returns the global identifier for the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetMaxRequestSize">
+            <summary>
+            Returns the maximum request size, in bytes, that this services accepts before a
+            <see cref="T:AK.Net.Json.Rpc.RpcError"/> is sent to the client indicating
+            a bad Rpc call.        
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetMethods">
+            <summary>
+            Returns the collection of methods exposed by the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetName">
+            <summary>
+            Returns the name of the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetSummary">
+            <summary>
+            Returns a short description of the service that the service provides.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcServiceInfo.GetVersion">
+            <summary>
+            Returns internal version of the service.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.IRpcBinder">
+            <summary>
+            Defines an object used to select parameters and methods based on internal heuristics
+            and to convert the parameters and return values.
+            </summary>
+            <remarks>Binders are REQUIRED to be thread safe.</remarks>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcBinder.SelectParameter(System.Collections.Generic.IList{AK.Net.Json.Rpc.RpcParameterDescriptor},System.String)">
+            <summary>
+            Selects the <see cref="T:AK.Net.Json.Rpc.RpcParameterDescriptor"/> identified by the 
+            specified <paramref name="key"/>.
+            </summary>
+            <param name="parameters">The list of parameters to search.</param>
+            <param name="key">The key of the parameter.</param>
+            <returns>The RpcParameterDescriptor identified by the specified key, or null if 
+            no match was found.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcBinder.SelectMethod(System.Collections.Generic.ICollection{AK.Net.Json.Rpc.RpcMethodDescriptor},System.String,AK.Net.Json.IJsonType)">
+            <summary>
+            Selects a <see cref="T:AK.Net.Json.Rpc.RpcMethodDescriptor"/> from the collection of candidates
+            based on some internal heuristics.
+            </summary>
+            <param name="methods">The list of methods to search.</param>
+            <param name="key">The key of the method.</param>
+            <param name="parameters">The parameters that are to be supplied to the method once 
+            selected.</param>
+            <returns>The selected RpcMethodDescriptor, or null if no match was found.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcBinder.ConvertParameters(AK.Net.Json.Rpc.RpcMethodDescriptor,AK.Net.Json.IJsonType)">
+            <summary>
+            Converts the specified <paramref name="parameters"/> to the formal argument types of the specified
+            <paramref name="method"/>.
+            </summary>
+            <param name="method">The selected method.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>The converted parameters.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.IRpcBinder.ConvertReturn(System.Object)">
+            <summary>
+            Converts the specified return <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcServiceElementCollection">
+            <summary>
+            Represents a collections of 
+            <see cref="T:AK.Net.Json.Rpc.Configuration.RpcServiceElement"/>s.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcServiceElementCollection.#ctor">
+            <summary>
+            Intialises a new instance of the RpcServiceElementCollection class.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcServiceElementCollection.GetElementById(System.String)">
+            <summary>
+            Gets a configuration element by the specified ID.
+            </summary>
+            <param name="id">The ID of the element.</param>
+            <returns>The element with the specified ID if found, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcServiceElementCollection.CreateNewElement">
+            <summary>
+            Creates a new <see cref="T:AK.Net.Json.Rpc.Configuration.RpcServiceElement"/> 
+            configuration element.
+            </summary>
+            <returns>A new <see cref="T:AK.Net.Json.Rpc.Configuration.RpcServiceElement"/>  
+            configuration element.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcServiceElementCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the key for the specified configuration element.
+            </summary>
+            <param name="element">The configuration element.</param>
+            <returns>The key for the specified configuration element.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceElementCollection.ThrowOnDuplicate">
+            <summary>
+            Gets a value indicating if duplicate configurations elements should result in a
+            <see cref="T:System.Configuration.ConfigurationException"/> being thrown.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcError">
+            <summary>
+            Represents a JSON-RPC error that occurred during the invocation of a method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcError.RpcErrorName">
+            <summary>
+            Defines the "JSONRPCError" name. This field is constant.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.#ctor(System.String,AK.Net.Json.Rpc.RpcErrorCode)">
+            <summary>
+            Initialises a new instance of the RpcError class.
+            </summary>
+            <param name="message">The message which describes the error that occurred.</param>
+            <param name="code">The RpcErrorCode which descibes the error.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.#ctor(System.String,AK.Net.Json.Rpc.RpcErrorCode,AK.Net.Json.IJsonType)">
+            <summary>
+            Initialises a new instance of the RpcError class.
+            </summary>
+            <param name="message">The message which describes the error that occurred.</param>
+            <param name="code">The RpcErrorCode which descibes the error.</param>
+            <param name="error">An application-specific error type.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.FromException(System.Exception,AK.Net.Json.Rpc.RpcErrorCode,System.Boolean)">
+            <summary>
+            Creates a new instance of the RpcError class using the specified 
+            <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="exc">The exception that occurred during the Rpc call.</param>
+            <param name="code">The RpcErrorCode which descibes the error.</param>
+            <param name="detailed">True to include stack and inner-exception information,
+            otherwise; false.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.Parse(AK.Net.Json.IJsonObject)">
+            <summary>
+            Parses an RpcError from the specified error container.
+            </summary>
+            <param name="container">The RpcError container.</param>
+            <returns>The parsed RpcError.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.TryParse(AK.Net.Json.IJsonObject,AK.Net.Json.Rpc.RpcError@)">
+            <summary>
+            Attemps to parse a RpcError from the specified error container and returns a 
+            value indicating success.
+            </summary>
+            <param name="container">The RpcError container.</param>
+            <param name="error">The parsed RpcError.</param>
+            <returns>True if a RpcError was sucessfully parsed, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this instance using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcError.BuildJsonContainer">
+            <summary>
+            Builds a JSON error container object based on the values of this instance.
+            </summary>
+            <returns>A JSON error container object.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcError.ErrorCode">
+            <summary>
+            Gets the error code of this RcpError.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcError.Message">
+            <summary>
+            Gets the error message of this RpcError.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcError.Error">
+            <summary>
+            Gets a IJsonType which contains application-specific error information
+            relating to this RpcError.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcError.JsonContainer">
+            <summary>
+            Gets the JSON error container object for this RpcError.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.Proxy.RpcProxyGenerator">
+            <summary>
+            This class cannot be inherited.
+            </summary>    
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.Proxy.RpcProxyGenerator.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Processes the specified request.
+            </summary>
+            <param name="context">The request context.</param>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.Proxy.RpcProxyGenerator.IsReusable">
+            <summary>
+            Gets a value indicating if this handler can service multiple requests.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.SdRpcMethodInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC method using a JSON-RPC
+            method descriptor object. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.#ctor(AK.Net.Json.IJsonObject)">
+            <summary>
+            Initialises a new instance of the SdRpcMethodInfo class and specifies
+            the method descriptor object containing method metadata.
+            </summary>
+            <param name="descriptor">The method descriptor object.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcMethodFlags"/> applied to the method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetHelpUrl">
+            <summary>
+            Returns a Url as to where more documentation of the method can be found.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetName">
+            <summary>
+            Returns the name of the method.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetParameters">
+            <summary>
+            Returns the collection of parameters in the method's signature.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetClrReturnType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetRpcReturnType">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.SdRpcMethodInfo.GetSummary">
+            <summary>
+            Returns a short description of the service that the method provides.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Error">
+            <summary>
+            Library error helper.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcSectionGroup">
+            <summary>
+            Represents the JSON-RPC configuration group within an application configuration file.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcServiceFlags">
+            <summary>
+            Specifies the flags to apply to a JSON-RPC service.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcServiceFlags.None">
+            <summary>
+            Indicates no flags are applied to the service.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcServiceFlags.Debug">
+            <summary>
+            Indicates that debugging is enabled for the service. The effect of enabling this option
+            is service dependent.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcServiceFlags.Disabled">
+            <summary>
+            Indicates that the service is disabled.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcParameterDescriptor">
+            <summary>
+            Describes the parameter of a JSON-RPC method and provides access to the parameters metadata.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcParameterDescriptor.EmptyArray">
+            <summary>
+            Defines an empty array of RpcParameterDescriptor types. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.#ctor(AK.Net.Json.Rpc.IRpcParameterInfo,AK.Net.Json.Rpc.RpcMethodDescriptor)">
+            <summary>
+            Initialises a new instance of the RpcParameterDescriptor class and specifies the
+            parameter to describe  and the <see cref="T:AK.Net.Json.Rpc.RpcMethodDescriptor"/>
+            which defines the RpcParameterDescriptor.
+            </summary>
+            <param name="param">The parameter to describe.</param>
+            <param name="method">The RpcMethodDescriptor that defines this parameter.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this instance using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.HasFlags(AK.Net.Json.Rpc.RpcParameterFlags)">
+            <summary>
+            Returns a value indicating if this parameter has been applied the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcParameterFlags"/>.
+            </summary>
+            <param name="flags">The flags to test.</param>
+            <returns>True if this parameter has been applied with the specified flags, otherwise; 
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.Equals(System.Object)">
+            <summary>
+            Returns a value indicating equality with the specified object.
+            </summary>
+            <param name="obj">The other object.</param>
+            <returns>True if the objects are considered equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.Equals(AK.Net.Json.Rpc.RpcParameterDescriptor)">
+            <summary>
+            Returns a value indicating equality with another RpcParameterDescriptor instance.
+            </summary>
+            <param name="other">The other instance.</param>
+            <returns>True if the instances are considered equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.GetHashCode">
+            <summary>
+            Returns hashcode based on the values of this instance.
+            </summary>
+            <returns>A hashcode based on the values of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterDescriptor.BuildJsonDescriptor">
+            <summary>
+            Builds a JSON parameter descriptor object based on the values of this descriptor.
+            </summary>
+            <returns>A JSON parameter descriptor object.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.Name">
+            <summary>
+            Gets the name of the parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.Description">
+            <summary>
+            Gets a description of this parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.RpcType">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of this parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.ClrType">
+            <summary>
+            Gets the <see cref="T:System.Type"/> of this parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.Position">
+            <summary>
+            Gets the position of this parameter within the procedure's signature.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.Method">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcMethodDescriptor"/> in which this
+            parameter is defined.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.Flags">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcParameterFlags"/> applied to this parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.DefaultValue">
+            <summary>
+            Gets the default value of this parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterDescriptor.JsonDescriptor">
+            <summary>
+            Gets the JSON parameter descriptor object for this parameter.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcParameterAttribute">
+            <summary>
+            When applied to a parameter of a JSON-RPC method, overrides the information that
+            would normally be inferred by the parameter's name and type information.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcParameterAttribute.#ctor(System.String,AK.Net.Json.Rpc.RpcTypeCode)">
+            <summary>
+            Initialises a new instance of the RpcParameterAttribute class and specifies
+            the parameter name and the parameter <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/>
+            of the parameter.
+            </summary>
+            <param name="name">The name of the parameter.</param>
+            <param name="type">The RpcTypeCode of the parameter.</param>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterAttribute.Name">
+            <summary>
+            Gets the name of the parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterAttribute.RpcType">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterAttribute.Description">
+            <summary>
+            Gets or sets a description of the parameter.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterAttribute.Flags">
+            <summary>
+            Gets or sets the <see cref="T:AK.Net.Json.Rpc.RpcParameterFlags"/> applied to the
+            parameter. The default is <see cref="F:AK.Net.Json.Rpc.RpcParameterFlags.None"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcParameterAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default value of the parameter.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcParameterFlags">
+            <summary>
+            Specifies the flags to apply to a JSON-RPC service method parameter.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcParameterFlags.None">
+            <summary>
+            Indicates no flags are applied to the parameter.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.DuplicateRpcParameterException">
+            <summary>
+            The exception that is thrown when a method defines more than parameter with
+            the same name. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DuplicateRpcParameterException.#ctor(AK.Net.Json.Rpc.RpcParameterDescriptor)">
+            <summary>
+            Inialises a new instance of the DuplicateRpcParameterException class.
+            </summary>
+            <param name="param">The duplicate parameter.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DuplicateRpcParameterException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialization constructor.
+            </summary>
+            <param name="info">The object containing the serialized information.</param>
+            <param name="context">The context of the serialization,</param>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.JsonTypeObjectRenderer">
+            <summary>
+            Provides support for rendering <see cref="T:AK.Net.Json.IJsonType"/>s as 
+            <see cref="T:System.String"/>s. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.JsonTypeObjectRenderer.RenderObject(log4net.ObjectRenderer.RendererMap,System.Object,System.IO.TextWriter)">
+            <summary>
+            Renders the specified object.
+            </summary>
+            <param name="rendererMap">The renderer map.</param>
+            <param name="obj">The object to render.</param>
+            <param name="writer">The output writer.</param>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcServiceAttribute">
+            <summary>
+            When applied to a type, exposes the methods applied with the 
+            <see cref="T:AK.Net.Json.Rpc.RpcMethodAttribute"/> attribute to the JSON-RPC 
+            infrastructure.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcServiceAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initialises a new instance of the RpcServiceAttribute class.
+            </summary>
+            <param name="name">The name of the service.</param>
+            <param name="id">The service identifier.</param>
+            <param name="address">The address if the service.</param>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.Id">
+            <summary>
+            Gets the global identifier for the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.Name">
+            <summary>
+            Gets the name of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.Address">
+            <summary>
+            Gets the address of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.Summary">
+            <summary>
+            Gets or sets a short description of the service that the service provides.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.HelpUrl">
+            <summary>
+            Gets or sets a Url as to where more documentation of the service is located.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.Version">
+            <summary>
+            Gets or sets internal version of the service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.Flags">
+            <summary>
+            Gets or sets the <see cref="T:AK.Net.Json.Rpc.RpcServiceFlags"/> applied to the
+            service. The default is <see cref="F:AK.Net.Json.Rpc.RpcServiceFlags.None"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcServiceAttribute.MaxRequestSize">
+            <summary>
+            Gets or sets the maximum request size, in bytes, that the services accepts before a
+            <see cref="T:AK.Net.Json.Rpc.RpcError"/> is sent to the client indicating a bad 
+            RPC call.        
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcResponseConverter">
+            <summary>
+            Provides support for converting <see cref="T:AK.Net.Json.Rpc.RpcResponse"/>s into thier
+            equivalent JavaScript Object Notation representation. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcResponseConverter.Instance">
+            <summary>
+            Provides a default instance of the RpcResponseConverter. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponseConverter.CanConvert(System.Object)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            object.
+            </summary>
+            <param name="target">The object.</param>
+            <returns>True if this converter can convert the specified object, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponseConverter.Convert(System.Object,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the specified object into it's equivalent JavaScript Object Notation
+            representation.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <param name="serializer">The serializer currently controlling the serialization process.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponseConverter.CanConvertFrom(AK.Net.Json.IJsonType,System.Type)">
+            <summary>
+            Returns a value indicating if this converter is capable of converting the specified
+            <see cref="T:AK.Net.Json.IJsonType"/> into the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <returns>True if the converter can convert the specified IJsonType, otherwise; false.
+            </returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponseConverter.ConvertFrom(AK.Net.Json.IJsonType,System.Type,AK.Net.Json.Conversion.IJsonSerializer)">
+            <summary>
+            Converts the value of the specified <see cref="T:AK.Net.Json.IJsonType"/> to the 
+            specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="targetType">The target type after conversion.</param>
+            <param name="serializer">The serializer currently controlling the deserialization process.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcErrorCode">
+            <summary>
+            Indicates the error that occurred whilst processing a JSON-RPC call.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.AccessDenied">
+            <summary>
+            Indicates that access is denied to the targeted JSON-RPC service.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.ServerError">
+            <summary>
+            Indicates that a general error occured during the processing of the Rpc call.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.ParseError">
+            <summary>
+            Indicates that parsing of the JSON-RPC call failed.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.BadCall">
+            <summary>
+            Indicates that the JSON-RPC call is not valid due to an unspecified reason.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.OutOfSequence">
+            <summary>
+            Indicates that the service refused to process the request as the JSON-RPC call contained
+            out of sequence members.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.ServiceError">
+            <summary>
+            Indicates that an error occurred during the invocation of the targeted method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.ServiceUnavailable">
+            <summary>
+            Indicates that the service is currently unavailable.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.MethodNotFound">
+            <summary>
+            Indicates that the method specified by the JSON-RPC call is not exposed by the service.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.ParameterConversionFailed">
+            <summary>
+            Indicates that parameter conversion failed for one or more of the parameters specified
+            by the JSON-RPC call.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.ReturnConversionFailed">
+            <summary>
+            Indicates that the JSON-RPC infrastructure was unable to convert the return value of the invoked
+            method.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcErrorCode.Unknown">
+            <summary>
+            An unknown / unspecified error occurred.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcCall">
+            <summary>
+            Represents a JSON-RPC method invocation request.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the JsonCall class.
+            </summary>
+            <param name="method">The name of the method that the call is targeted at.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.#ctor(System.String,AK.Net.Json.IJsonType)">
+            <summary>
+            Initialises a new instance of the JsonCall class.
+            </summary>
+            <param name="method">The name of the method that the call is targeted at.</param>
+            <param name="parameters">The method parameters.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.#ctor(System.String,AK.Net.Json.IJsonType,AK.Net.Json.IJsonType)">
+            <summary>
+            Initialises a new instance of the JsonCall class.
+            </summary>
+            <param name="method">The name of the method that the call is targeted at.</param>
+            <param name="parameters">The method parameters.</param>
+            <param name="id">The ID of the call.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.#ctor(System.String,AK.Net.Json.IJsonType,AK.Net.Json.IJsonType,System.String)">
+            <summary>
+            Initialises a new instance of the JsonCall class.
+            </summary>
+            <param name="method">The name of the method that the call is targeted at.</param>
+            <param name="parameters">The method parameters.</param>
+            <param name="id">The ID of the call.</param>
+            <param name="version">The Rpc version of the call.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this instance using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.CreateResponse(AK.Net.Json.IJsonType)">
+            <summary>
+            Creates a successfull <see cref="T:AK.Net.Json.Rpc.RpcResponse"/> to this 
+            RpcCall using the specified <paramref name="result"/>.
+            </summary>
+            <param name="result">The result of the Rpc invocation.</param>
+            <returns>The RpcResponse.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.CreateResponse(AK.Net.Json.Rpc.RpcError)">
+            <summary>
+            Creates an unsuccessfull <see cref="T:AK.Net.Json.Rpc.RpcResponse"/> to this 
+            RpcCall using the specified <paramref name="error"/>.
+            </summary>
+            <param name="error">The Rpc error that occurred during invocation.</param>
+            <returns>The RpcResponse.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.Post(System.Uri)">
+            <summary>
+            Posts this RpcCall to the specified address and returns the 
+            <see cref="T:AK.Net.Json.Rpc.RpcResponse"/>.
+            </summary>
+            <param name="addr">The address to post to.</param>
+            <returns>The <see cref="T:AK.Net.Json.Rpc.RpcResponse"/> to the call.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.NewId">
+            <summary>
+            Returns a new JSON-RPC call Id.
+            </summary>
+            <returns>A new JSON-RPC call Id.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.CreateSystemVersionCall">
+            <summary>
+            Creates a "system.version" JSON-RPC call.
+            </summary>
+            <returns>A "system.version" JSON-RPC call.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.CreateSystemListMethodCall">
+            <summary>
+            Creates a "system.listMethods" JSON-RPC call.
+            </summary>
+            <returns>A "system.listMethods" JSON-RPC call.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.CreateSystemDescribeCall">
+            <summary>
+            Creates a "system.describe" JSON-RPC call.
+            </summary>
+            <returns>A "system.describe" JSON-RPC call.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.Parse(AK.Net.Json.JsonParser)">
+            <summary>
+            Parses an RpcCall from the specified <see cref="T:AK.Net.Json.JsonParser"/>.
+            </summary>
+            <param name="parser">The parser.</param>
+            <returns>The parsed JsonCall.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.TryParse(AK.Net.Json.JsonParser,AK.Net.Json.Rpc.RpcCall@)">
+            <summary>
+            Attemps to parse a JsonCall from the specified <see cref="T:AK.Net.Json.JsonParser"/>
+            and returns a value indicating success.
+            </summary>
+            <param name="parser">The parser.</param>
+            <param name="call">The parsed JsonCall.</param>
+            <returns>True if a JsonCall was sucessfully parsed, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.Parse(AK.Net.Json.IJsonObject)">
+            <summary>
+            Parses an RpcCall from the specified <see cref="T:AK.Net.Json.JsonObject"/>.
+            </summary>
+            <param name="container">The RpcCall container.</param>
+            <returns>The parsed RpcCall.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.TryParse(AK.Net.Json.IJsonObject,AK.Net.Json.Rpc.RpcCall@)">
+            <summary>
+            Attemps to parse a RpcCall from the specified <see cref="T:AK.Net.Json.JsonObject"/>
+            and returns a value indicating success.
+            </summary>
+            <param name="container">The RpcCall container.</param>
+            <param name="call">The parsed RpcCall.</param>
+            <returns>True if a RpcCall was sucessfully parsed, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.Parse(System.Uri)">
+            <summary>
+            Parses an RpcCall from the specified <see cref="T:System.Uri"/>.
+            </summary>
+            <param name="request">The request Uri.</param>
+            <returns>The parsed JsonCall.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.TryParse(System.Uri,AK.Net.Json.Rpc.RpcCall@)">
+            <summary>
+            Attemps to parse a JsonCall from the specified <see cref="T:System.Uri"/>
+            and returns a value indicating success.
+            </summary>
+            <param name="request">The request Uri.</param>
+            <param name="call">The parsed JsonCall.</param>
+            <returns>True if a JsonCall was sucessfully parsed, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.IsValidParameterType(AK.Net.Json.JsonTypeCode)">
+            <summary>
+            Returns a value indicating if the specified <paramref name="type"/> is a valid
+            RpcCall parameter type.
+            </summary>
+            <param name="type">The type to test.</param>
+            <returns>True if the type is a valid parameter type, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcCall.BuildJsonContainer">
+            <summary>
+            Builds a JSON call container object based on the values of this instance.
+            </summary>
+            <returns>A call container object.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.Parameters">
+            <summary>
+            Gets the parameters for this RpcCall.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.Version">
+            <summary>
+            Gets the JSON-RPC version of this RpcCall.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.Id">
+            <summary>
+            Gets the ID of this RpcCall.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.Method">
+            <summary>
+            Gets the name of the method to invoke.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.HasParameters">
+            <summary>
+            Gets a value indicating if this call specifies any parameters for the
+            method which it is target at.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.IsNotification">
+            <summary>
+            Gets a value indicating if this RpcCall is a JSON-RPC notification.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcCall.JsonContainer">
+            <summary>
+            Gets the JSON call container object for this RpcCall.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC service using reflection
+            information. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.#ctor(System.Type)">
+            <summary>
+            Initialises a new instance of the ReflectiveRpcServiceInfo class and specifies
+            the <see cref="T:System.Type"/> of the service to reflect on.
+            </summary>
+            <param name="serviceType">The service type.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetAddress">
+            <summary>
+            Returns the address of the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcServiceFlags"/> applied to the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetHelpUrl">
+            <summary>
+            Returns a Url as to where more documentation of the service is located.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetId">
+            <summary>
+            Returns the global identifier for the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetMaxRequestSize">
+            <summary>
+            Returns the maximum request size, in bytes, that this services accepts before a
+            <see cref="T:AK.Net.Json.Rpc.RpcError"/> is sent to the client indicating
+            a bad Rpc call.        
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetMethods">
+            <summary>
+            Returns the collection of methods exposed by the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetName">
+            <summary>
+            Returns the name of the service.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetSummary">
+            <summary>
+            Returns a short description of the service that the service provides.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcServiceInfo.GetVersion">
+            <summary>
+            Returns internal version of the service.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.DefaultRpcBinder">
+            <summary>
+            Provides a default implementation of the <see cref="T:AK.Net.Json.Rpc.IRpcBinder"/> interface.    
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DefaultRpcBinder.SelectParameter(System.Collections.Generic.IList{AK.Net.Json.Rpc.RpcParameterDescriptor},System.String)">
+            <summary>
+            Selects the <see cref="T:AK.Net.Json.Rpc.RpcParameterDescriptor"/> identified
+            by the specified <paramref name="key"/>.
+            </summary>
+            <param name="parameters">The list of parameters to search.</param>
+            <param name="key">The key of the parameter.</param>
+            <returns>The RpcParameterDescriptor identified by the specified key, otherwise; null if 
+            no match was found.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DefaultRpcBinder.SelectMethod(System.Collections.Generic.ICollection{AK.Net.Json.Rpc.RpcMethodDescriptor},System.String,AK.Net.Json.IJsonType)">
+            <summary>
+            Selects a <see cref="T:AK.Net.Json.Rpc.RpcMethodDescriptor"/> from the collection of candidates
+            based on some internal heuristics.
+            </summary>
+            <param name="methods">The list of methods to search.</param>
+            <param name="key">The key of the method.</param>
+            <param name="parameters">The parameters that are to be supplied to the method once 
+            selected.</param>
+            <returns>The selected RpcMethodDescriptor, or null if no match was found.</returns>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DefaultRpcBinder.ConvertParameters(AK.Net.Json.Rpc.RpcMethodDescriptor,AK.Net.Json.IJsonType)">
+            <summary>
+            Converts the specified <paramref name="parameters"/> to the formal argument types of the 
+            specified <paramref name="method"/>.
+            </summary>
+            <param name="method">The selected method.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>The converted parameters.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.DefaultRpcBinder.ConvertReturn(System.Object)">
+            <summary>
+            Converts the specified return <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Http.HttpRpcTransport">
+            <summary>
+            Represents the transport of an HTTP JSON-RPC request.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.IRpcTransport">
+            <summary>
+            Defines the transport for an RPC service.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.IRpcTransport.Input">
+            <summary>
+            Gets the input <see cref="T:System.IO.TextReader"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.IRpcTransport.Output">
+            <summary>
+            Gets the output <see cref="T:System.IO.TextReader"/>.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Http.HttpRpcTransport.#ctor(System.Web.HttpContext)">
+            <summary>
+            Initialises a new instance of the HttpRpcTransport class.
+            </summary>
+            <param name="context">The HTTP context.</param>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcTransport.Input">
+            <summary>
+            Gets the input <see cref="T:System.IO.TextReader"/>.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Http.HttpRpcTransport.Output">
+            <summary>
+            Gets the output <see cref="T:System.IO.TextReader"/>.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.Configuration.RpcServiceSection">
+            <summary>
+            Represents the service configuration section within an application configuration file.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.Configuration.RpcServiceSection.GetSection">
+            <summary>
+            Helper method to retrieve the RpcServiceSection from it's default location.
+            </summary>
+            <returns>The HttpRpcConfiguration.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceSection.BaseUrl">
+            <summary>
+            Gets the base service Url. The default is null.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceSection.BinderType">
+            <summary>
+            Gets the name of the <see cref="T:AK.Net.Json.Rpc.IRpcBinder"/> type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.Configuration.RpcServiceSection.Services">
+            <summary>
+            Gets the collection of service configuration elements.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcMethodDescriptor">
+            <summary>
+            Describes a method which is exposed by a JSON-RPC service and provides access to
+            the method's metadata.
+            </summary>
+        </member>
+        <member name="F:AK.Net.Json.Rpc.RpcMethodDescriptor.EmptyArray">
+            <summary>
+            Defines an empty array of RpcMethodDescriptor types. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.#ctor(AK.Net.Json.Rpc.IRpcMethodInfo,AK.Net.Json.Rpc.RpcServiceDescriptor)">
+            <summary>
+            Initialises a new instance of the RpcMethodDescriptor class and specifies
+            the method to describe and the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/>
+            which defines the RpcMethodDescriptor.
+            </summary>
+            <param name="method">The method to describe.</param>
+            <param name="service">The RpcServiceDescriptor which defines the method.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this instance using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.HasFlags(AK.Net.Json.Rpc.RpcMethodFlags)">
+            <summary>
+            Returns a value indicating if this method has been applied the specified
+            <see cref="T:AK.Net.Json.Rpc.RpcMethodFlags"/>.
+            </summary>
+            <param name="flags">The flags to test.</param>
+            <returns>True if this method has been applied with the specified flags, otherwise; 
+            false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.Equals(System.Object)">
+            <summary>
+            Returns a value indicating equality with the specified object.
+            </summary>
+            <param name="obj">The other object.</param>
+            <returns>True if the objects are considered equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.Equals(AK.Net.Json.Rpc.RpcMethodDescriptor)">
+            <summary>
+            Returns a value indicating equality with another RpcMethodDescriptor instance.
+            </summary>
+            <param name="other">The other instance.</param>
+            <returns>True if the instances are considered equal, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.GetHashCode">
+            <summary>
+            Returns hashcode based on the values of this instance.
+            </summary>
+            <returns>A hashcode based on the values of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodDescriptor.BuildJsonDescriptor">
+            <summary>
+            Builds a JSON method descriptor object based on the values of this descriptor.
+            </summary>
+            <returns>A JSON method descriptor object.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.Name">
+            <summary>
+            Gets the name of this method.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.ClrReturnType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the method's return type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.RpcReturnType">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of this method's return type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.Summary">
+            <summary>
+            Gets a short description of the service that this method provides.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.HelpUrl">
+            <summary>
+            Gets a Url as to where more documentation of this method can be found.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.Flags">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcMethodFlags"/> applied to this method.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.IsSystemMethod">
+            <summary>
+            Gets a value inidicating if this method is a system method.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.Parameters">
+            <summary>
+            Gets the collection of <see cref="T:AK.Net.Json.Rpc.RpcParameterDescriptor"/> descriptors
+            which describe the parameters of this method.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.HasParameters">
+            <summary>
+            Gets a value indicating if this method has parameters.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.Service">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcServiceDescriptor"/> which defines
+            this method.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.Signature">
+            <summary>
+            Gets a <see cref="T:System.String"/> representation of this method's signature.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodDescriptor.JsonDescriptor">
+            <summary>
+            Gets the JSON method descriptor object for this method.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo">
+            <summary>
+            Provides access to the metadata of a JSON-RPC parameter using reflection
+            information. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.#ctor(System.Reflection.ParameterInfo)">
+            <summary>
+            Initialises a new instance of the ReflectiveRpcMethodInfo class and specifies
+            the <see cref="T:System.Reflection.ParameterInfo"/> of the parameter to reflect on.
+            </summary>
+            <param name="param">The parameter.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetClrType">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetDefaultValue">
+            <summary>
+            Returns the default value of this parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetDescription">
+            <summary>
+            Returns a description of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetFlags">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcParameterFlags"/> applied to the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetName">
+            <summary>
+            Returns the name of the parameter.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetPosition">
+            <summary>
+            Returns the position of the parameter within the procedure's signature.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.ReflectiveRpcParameterInfo.GetRpcType">
+            <summary>
+            Returns the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the parameter.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcResponse">
+            <summary>
+            Represents a JSON-RPC method invocation response.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.#ctor(AK.Net.Json.Rpc.RpcError)">
+            <summary>
+            Initialises a new instance of the RpcResponse call.
+            </summary>
+            <param name="error">The error that occurred during the RPC invocation.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.#ctor(AK.Net.Json.Rpc.RpcError,AK.Net.Json.IJsonType)">
+            <summary>
+            Initialises a new instance of the RpcResponse call.
+            </summary>
+            <param name="error">The error that occurred during the RPC invocation.</param>
+            <param name="id">The ID of the RpcResponse.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.#ctor(AK.Net.Json.Rpc.RpcError,AK.Net.Json.IJsonType,System.String)">
+            <summary>
+            Initialises a new instance of the RpcResponse call.
+            </summary>
+            <param name="error">The error that occurred during the RPC invocation.</param>
+            <param name="id">The ID of the RpcResponse.</param>
+            <param name="version">The version of the RpcResponse.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.#ctor(AK.Net.Json.IJsonType)">
+            <summary>
+            Initialises a new instance of the RpcResponse call.
+            </summary>
+            <param name="result">The successful result of the RPC invocation.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.#ctor(AK.Net.Json.IJsonType,AK.Net.Json.IJsonType)">
+            <summary>
+            Initialises a new instance of the RpcResponse call.
+            </summary>
+            <param name="result">The successful result of the RPC invocation.</param>
+            <param name="id">The ID of the RpcResponse.</param>        
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.#ctor(AK.Net.Json.IJsonType,AK.Net.Json.IJsonType,System.String)">
+            <summary>
+            Initialises a new instance of the RpcResponse call.
+            </summary>
+            <param name="result">The successful result of the RPC invocation.</param>
+            <param name="id">The ID of the RpcResponse.</param>
+            <param name="version">The version of the RpcResponse.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.Accept(AK.Net.Json.IJsonVisitor)">
+            <summary>
+            Visits this instance using the specified <see cref="T:AK.Net.Json.IJsonVisitor"/>.
+            </summary>
+            <param name="visitor">The Json visitor.</param>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this instance.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.Parse(AK.Net.Json.JsonParser)">
+            <summary>
+            Parses an RpcResponse from the specified <see cref="T:AK.Net.Json.JsonParser"/>.
+            </summary>
+            <param name="parser">The parser.</param>
+            <returns>The parsed RpcResponse.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.TryParse(AK.Net.Json.JsonParser,AK.Net.Json.Rpc.RpcResponse@)">
+            <summary>
+            Attemps to parse a RpcResponse from the specified <see cref="T:AK.Net.Json.JsonParser"/>
+            and returns a value indicating success.
+            </summary>
+            <param name="parser">The parser.</param>
+            <param name="response">The parsed RpcResponse.</param>
+            <returns>True if a RpcResponse was sucessfully parsed, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.Parse(AK.Net.Json.IJsonObject)">
+            <summary>
+            Parses an RpcResponse from the specified <see cref="T:AK.Net.Json.JsonObject"/>.
+            </summary>
+            <param name="container">The RpcResponse container.</param>
+            <returns>The parsed RpcResponse.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.TryParse(AK.Net.Json.IJsonObject,AK.Net.Json.Rpc.RpcResponse@)">
+            <summary>
+            Attemps to parse a RpcResponse from the specified <see cref="T:AK.Net.Json.JsonObject"/>
+            and returns a value indicating success.
+            </summary>
+            <param name="container">The RpcResponse container.</param>
+            <param name="response">The parsed RpcResponse.</param>
+            <returns>True if a RpcResponse was sucessfully parsed, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcResponse.BuildJsonContainer">
+            <summary>
+            Builds a JSON response container object based on the values of this instance.
+            </summary>
+            <returns>A JSON response container object.</returns>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcResponse.Error">
+            <summary>
+            Gets the error that occurred during the RPC invocation.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcResponse.Result">
+            <summary>
+            Gets the result of this RpcResponse.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcResponse.Version">
+            <summary>
+            Gets the Rpc version of this RpcResponse.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcResponse.Id">
+            <summary>
+            Gets the ID of this RpcResponse.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcResponse.IsSuccessful">
+            <summary>
+            Gets a value indicating if this RpcResponse is sucessful.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcResponse.JsonContainer">
+            <summary>
+            Gets the JSON response container object for this RpcResponse.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Json.Rpc.RpcMethodAttribute">
+            <summary>
+            When applied to a method of a JSON-RPC service type, exposes the method to the 
+            Rpc infrastructure.
+            </summary>
+        </member>
+        <member name="M:AK.Net.Json.Rpc.RpcMethodAttribute.#ctor(System.String,AK.Net.Json.Rpc.RpcTypeCode)">
+            <summary>
+            Initialises a new instance of the RpcMethodAttribute class and specifies
+            the method name and the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/>
+            of the return type.
+            </summary>
+            <param name="name">The name of the method.</param>
+            <param name="returnType">The RpcTypeCode of the return type.</param>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodAttribute.Name">
+            <summary>
+            Gets the name of the mthod.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodAttribute.ReturnRpcType">
+            <summary>
+            Gets the <see cref="T:AK.Net.Json.Rpc.RpcTypeCode"/> of the method's
+            return type.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodAttribute.Summary">
+            <summary>
+            Gets or sets a short description of the service that the method provides.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodAttribute.HelpUrl">
+            <summary>
+            Gets or sets a Url as to where more documentation of the method is located.
+            </summary>
+        </member>
+        <member name="P:AK.Net.Json.Rpc.RpcMethodAttribute.Flags">
+            <summary>
+            Gets or sets the <see cref="T:AK.Net.Json.Rpc.RpcMethodFlags"/> applied to the
+            method. The default is <see cref="F:AK.Net.Json.Rpc.RpcMethodFlags.None"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="Admin_AdminMaster" MasterPageFile="~/content.master" %>
+
+<asp:Content ID="AdminLeftMenuItems" runat="server" ContentPlaceHolderID="LeftMenuItems">
+    <li><a href="/admin/default.aspx">Clubs</a></li>        
+    <li><a href="/admin/links.aspx">Links</a></li>
+    <li><a href="/admin/queries.aspx">Queries</a></li>    
+    <li><a href="/admin/sandbox.aspx">Sandbox</a></li>    
+    <li><a href="/logout.aspx">Logout</a></li>
+</asp:Content>
+<asp:Content ID="AdminContent" ContentPlaceHolderID="Content" Runat="Server">    
+    <asp:ContentPlaceHolder ID="Content" runat="server" />    
+</asp:Content>

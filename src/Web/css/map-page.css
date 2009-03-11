@@ -1,0 +1,114 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;	
+	line-height: 1.5em;
+}
+#search {
+	padding: 8px 4px 4px 4px;
+	border: solid 1px #979797;
+	border-bottom: double 3px #979797;
+}
+#search label {
+	float: left;
+	width: 4.2em;
+}
+#search label.inline {
+	float: none;
+	width: auto;
+}
+#page {
+	padding: 4px 8px 8px 8px;
+}
+#lhs {
+	float: left;
+	width: 28em;
+}
+#context-menu {
+	background-color: #ffffff;
+	border-left: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #000000;
+	border-right: 1px solid #000000;
+	position: absolute;
+}
+#context-menu .item {
+	color: #0000cc;
+	cursor: pointer;
+	padding: 2px 6px;
+}
+#context-menu .item:hover {
+	background-color: #d3e3fe;
+}
+#context-menu .item-sep {
+	border-bottom: 1px solid #cccccc;
+}
+#map {
+	border: 1px solid #979797;
+	margin-left: 28.5em;
+	position: relative;
+}
+#logo {
+	float: left;
+}
+ul#nav {
+	float: right;
+	position: relative;
+	top: 1.6em;
+}
+ul#nav li {	
+	display: inline;	
+	padding: 0;
+}
+ul#nav li.sep {
+	margin: 0;
+}
+.criteria, .criterion {
+	margin-bottom: 0.3em;
+}
+.msg, .busy {
+	padding: 0.3em;
+}
+.busy {
+	font-weight: bold;
+	color: #979797;
+}
+#scolling-container {
+	border: solid 1px #979797;
+	border-top: none;
+	overflow: auto;
+}
+#detail-list {
+	margin-right: 1px;
+}
+.selected {
+	background-color: #F0F0F0;
+}
+.detail {
+	cursor: pointer;
+	padding: 0.3em;
+	margin-right: -1px;
+	border-bottom: solid 1px #979797;
+}
+.fn {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.adr {
+	margin: 0.2em 0;
+}
+.adr div {
+	display: inline;
+	margin: 0.2em 0;
+}
+.geo {
+	display: none;
+}
+.info-window-content {
+	padding: 0.75em;
+	max-width: 30em;
+}
+.info-window-content .actions {
+	margin-top: 0.2em;
+	text-align: left;
+}

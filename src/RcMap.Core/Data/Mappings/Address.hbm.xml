@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="RcMap.Model.Address, RcMap.Model" table="rcmap_address">
+    <cache usage="nonstrict-read-write" />
+		<id name="Id" type="Int32" unsaved-value="0">
+			<column name="Id" length="4" sql-type="int" not-null="true" unique="true"/>
+			<generator class="identity" />
+		</id>
+    <property name="Extended" type="String">
+      <column name="Extended" length="128" sql-type="nvarchar" not-null="true"/>
+    </property>
+    <property name="Street" type="String">
+      <column name="Street" length="128" sql-type="nvarchar" not-null="false"/>
+    </property>
+    <property name="Locality" type="String">
+      <column name="Locality" length="128" sql-type="nvarchar" not-null="false"/>
+    </property>
+    <property name="Postcode" type="String">
+      <column name="Postcode" length="15" sql-type="nvarchar" not-null="true"/>
+    </property>
+    <many-to-one name="Region" column="RegionId" class="RcMap.Model.Region, RcMap.Model" not-null="true" lazy="false" fetch="select" cascade="none" />
+	</class>
+</hibernate-mapping>

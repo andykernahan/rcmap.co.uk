@@ -1,0 +1,910 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AK.Common</name>
+    </assembly>
+    <members>
+        <member name="T:AK.Common.IO.WriteonlyStream">
+            <summary>
+            Provides a writeonly <see cref="T:System.IO.Stream"/> decorator.
+            </summary>
+        </member>
+        <member name="T:AK.Common.IO.StreamDecorator">
+            <summary>
+            Defines a base class for <see cref="T:System.IO.Stream"/> decorators. This
+            class is abstract.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.#ctor(System.IO.Stream)">
+            <summary>
+            Initialises a new instance of the StreamDecorator class.
+            </summary>
+            <param name="inner">The stream to decorate.</param>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.Close">
+            <summary>
+            Closes an releases any resources associated with this stream.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from this stream and returns the number of bytes
+            read.
+            </summary>
+            <param name="buffer">The buffer into which the read bytes are written.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which 
+            writing begins.</param>
+            <param name="count">The maximum number of bytes to read from the stream.</param>
+            <returns>The number of bytes read from the stream and written to 
+            <paramref name="buffer"/>. A return value of -1 indicates the end of the 
+            stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins an asynchronous read operation.
+            </summary>
+            <param name="buffer">The buffer into which the read bytes are written.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which 
+            writing begins.</param>
+            <param name="count">The maximum number of bytes to read from the stream.</param>
+            <param name="callback">The method to invoke when the operation completes.</param>
+            <param name="state">A user defined state object to associate with the operation.</param>
+            <returns>An object which represents the status of the asynchronous operation.</returns>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.EndRead(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous read operation.
+            </summary>
+            <param name="asyncResult">The asynchronous operation.</param>
+            <returns>The number of bytes read from the stream and written to the buffer.
+            A return value of -1 indicates the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.ReadByte">
+            <summary>
+            Reads a byte from this stream.
+            </summary>
+            <returns>The read byte, or -1 if the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the position of this stream.
+            </summary>
+            <param name="offset">The offset relative to the 
+            <paramref name="origin"/>.</param>
+            <param name="origin">The reference point.</param>
+            <returns>The new position of the stream.</returns>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.SetLength(System.Int64)">
+            <summary>
+            Sets the length of this stream to the specifed <paramref name="value"/>.
+            </summary>
+            <param name="value">The desired length.</param>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes the content of the specifed <paramref name="buffer"/> to this stream.
+            </summary>
+            <param name="buffer">The buffer containing the data to write.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which reading
+            begins.</param>
+            <param name="count">The maximum number of bytes to write.</param>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins an asynchronous write operation.
+            </summary>
+            <param name="buffer">The buffer containing the data to write.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which reading
+            begins.</param>
+            <param name="count">The maximum number of bytes to write.</param>
+            <param name="callback">The method to invoke when the operation completes.</param>
+            <param name="state">A user defined state object to associate with the operation.</param>
+            <returns>An object which represents the status of the asynchronous operation.</returns>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.EndWrite(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous write operation.
+            </summary>
+            <param name="asyncResult">The asynchronous operation.</param>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.WriteByte(System.Byte)">
+            <summary>
+            Writes the specified byte to this stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.Flush">
+            <summary>
+            Flushes this stream causing any buffered data to be written.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.Dispose(System.Boolean)">
+            <summary>
+            Disposes of this stream.
+            </summary>
+            <param name="disposing">True if being called explicity, otherwise; false
+            is being called from the GC.</param>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.DisposeInner">
+            <summary>
+            Disposes of the inner stream.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.CheckDisposed">
+            <summary>
+            Helper method to throw a <see cref="T:System.ObjectDisposedException"/>
+            if this instance has been disposed of.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.StreamDecorator.CheckBufferArgs(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Helper method thats throws an appropiate exception if any of the specified
+            arguments are invalid.
+            </summary>
+            <param name="buffer">The buffer into which the read bytes are written.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which 
+            writing begins.</param>
+            <param name="count">The maximum number of bytes to read from the stream.</param>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.CanRead">
+            <summary>
+            Gets a value indicating if this stream supports reading.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.CanSeek">
+            <summary>
+            Gets a value indicating if this stream supports seeking.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.CanWrite">
+            <summary>
+            Gets a value indicating if this stream supports writing.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.Length">
+            <summary>
+            Gets the length in bytes of this stream.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.Position">
+            <summary>
+            Gets or sets the position of this stream.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.CanTimeout">
+            <summary>
+            Gets a value indicating if this stream can timeout.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.ReadTimeout">
+            <summary>
+            Gets or sets the number of milliseconds that this stream will wait for a 
+            read operation to complete before timing out.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.WriteTimeout">
+            <summary>
+            Gets or sets the number of milliseconds that this stream will wait for a 
+            write operation to complete before timing out.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.Inner">
+            <summary>
+            Gets the inner stream.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.StreamDecorator.IsDisposed">
+            <summary>
+            Gets or sets a value indicating if this instance has been disposed of.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.WriteonlyStream.#ctor(System.IO.Stream)">
+            <summary>
+            Initialises a new instance of the WriteonlyStream class.
+            </summary>
+            <param name="inner">The inner stream.</param>        
+        </member>
+        <member name="M:AK.Common.IO.WriteonlyStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from this stream and returns the number of bytes
+            read.
+            </summary>
+            <param name="buffer">The buffer into which the read bytes are written.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which 
+            writing begins.</param>
+            <param name="count">The maximum number of bytes to read from the stream.</param>
+            <returns>The number of bytes read from the stream and written to 
+            <paramref name="buffer"/>. A return value of -1 indicates the end of the 
+            stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.WriteonlyStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins an asynchronous read operation.
+            </summary>
+            <param name="buffer">The buffer into which the read bytes are written.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which 
+            writing begins.</param>
+            <param name="count">The maximum number of bytes to read from the stream.</param>
+            <param name="callback">The method to invoke when the operation completes.</param>
+            <param name="state">A user defined state object to associate with the operation.</param>
+            <returns>An object which represents the status of the asynchronous operation.</returns>
+        </member>
+        <member name="M:AK.Common.IO.WriteonlyStream.EndRead(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous read operation.
+            </summary>
+            <param name="asyncResult">The asynchronous operation.</param>
+            <returns>The number of bytes read from the stream and written to the buffer.
+            A return value of -1 indicates the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.WriteonlyStream.ReadByte">
+            <summary>
+            Reads a byte from this stream.
+            </summary>
+            <returns>The read byte, or -1 if the end of the stream has been reached.</returns>
+        </member>
+        <member name="P:AK.Common.IO.WriteonlyStream.CanRead">
+            <summary>
+            Gets a value indicating if this stream supports reading.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.WriteonlyStream.CanWrite">
+            <summary>
+            Gets a value indicating if this stream supports writing.
+            </summary>
+        </member>
+        <member name="T:AK.Net.Mime.DisposableContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AK.Net.Mime.DisposableContext.#ctor(AK.Net.Mime.VoidMethod)">
+            <summary>
+            Initialises a new instance of the DisposableContext struct.
+            </summary>
+            <param name="callback">The callback method to invoke when
+            this instance of disposed of.</param>
+        </member>
+        <member name="M:AK.Net.Mime.DisposableContext.Dispose">
+            <summary>
+            Disposes of this instance.
+            </summary>
+        </member>
+        <member name="T:AK.Common.EventHelper">
+            <summary>
+            Provides static event related utility methods.
+            </summary>
+        </member>
+        <member name="M:AK.Common.EventHelper.Invoke(System.EventHandler,System.Object)">
+            <summary>
+            Invokes the specified <see cref="T:System.EventHandler"/> if there are any subsribers.
+            </summary>
+            <param name="evt">The event to invoke.</param>
+            <param name="sender">The object invoking the event.</param>        
+        </member>
+        <member name="M:AK.Common.EventHelper.Invoke(System.EventHandler,System.Object,System.EventArgs)">
+            <summary>
+            Invokes the specified <see cref="T:System.EventHandler"/> if there are any subsribers.
+            </summary>
+            <param name="evt">The event to invoke.</param>
+            <param name="sender">The object invoking the event.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:AK.Common.EventHelper.Invoke(System.EventHandler,System.Object,System.EventArgs,System.Boolean)">
+            <summary>
+            Invokes the specified <see cref="T:System.EventHandler"/> if there are any subsribers.
+            </summary>
+            <param name="evt">The event to invoke.</param>
+            <param name="sender">The object invoking the event.</param>
+            <param name="e">The event arguments.</param>
+            <param name="async">True to invoke the event asynchronously, otherwise; false.</param>
+        </member>
+        <member name="M:AK.Common.EventHelper.Invoke``1(System.EventHandler{``0},System.Object,``0)">
+            <summary>
+            Invokes the specified <see cref="T:System.EventHandler`1"/> if there are any subsribers.
+            </summary>
+            <param name="evt">The event to invoke.</param>
+            <param name="sender">The object invoking the event.</param>
+            <param name="e">The event arguments.</param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:AK.Common.EventHelper.Invoke``1(System.EventHandler{``0},System.Object,``0,System.Boolean)">
+            <summary>
+            Invokes the specified <see cref="T:System.EventHandler`1"/> if there are any subsribers.
+            </summary>
+            <param name="evt">The event to invoke.</param>
+            <param name="sender">The object invoking the event.</param>
+            <param name="e">The event arguments.</param>
+            <param name="async">True to invoke the event asynchronously, otherwise; false.</param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:AK.Common.Error">
+            <summary>
+            Library error helper.
+            </summary>
+        </member>
+        <member name="T:AK.Common.Si">
+            <summary>
+            Provides support for converting numeric values into thier SI representation.
+            </summary>
+        </member>
+        <member name="F:AK.Common.Si.DefaultBytesFormat">
+            <summary>
+            Defines the default format string for bytes.
+            </summary>
+        </member>
+        <member name="M:AK.Common.Si.BytesToString(System.Int64)">
+            <summary>
+            Converts the specified <paramref name="value"/> into its SI string representation using the 
+            <see cref="F:AK.Common.Si.DefaultBytesFormat"/> format string.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The SI string representation of <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:AK.Common.Si.BytesToString(System.Double)">
+            <summary>
+            Converts the specified <paramref name="value"/> into its SI string representation using the 
+            <see cref="F:AK.Common.Si.DefaultBytesFormat"/> format string.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The SI string representation of <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:AK.Common.Si.BytesToString(System.Int64,System.String)">
+            <summary>
+            Converts the specified <paramref name="value"/> into its SI string representation using the 
+            the specified <paramref name="format"/> string.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="format">The format string.</param>
+            <returns>The SI string representation of <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:AK.Common.Si.BytesToString(System.Double,System.String)">
+            <summary>
+            Converts the specified <paramref name="value"/> into its SI string representation using the 
+            the specified <paramref name="format"/> string.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <param name="format">The format string.</param>
+            <returns>The SI string representation of <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:AK.Common.ReflectionHelper">
+            <summary>
+            Provides static reflection utility methods.
+            </summary>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetElementType(System.Type)">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the elements for the specified collection
+            type.
+            </summary>
+            <param name="collectionType">The collection type.</param>
+            <returns>The collection element Type <paramref name="collectionType"/>.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetKeyAndValueType(System.Type,System.Type@,System.Type@)">
+            <summary>
+            Returns the <see cref="T:System.Type"/> of the key and value for the specified
+            dictionary type.
+            </summary>
+            <param name="dictionaryType">The dictionary type.</param>
+            <param name="keyType">The key Type for the specified dictionary type.</param>
+            <param name="valueType">The value Type for the specified dictionary type.</param>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.ImplementsInterface(System.Type,System.Type)">
+            <summary>
+            Returns a value indicating if the specified <paramref name="type"/> implements
+            the specified interface type.
+            </summary>
+            <param name="type">The type to query.</param>
+            <param name="interfaceType">The interface type.</param>
+            <returns>True if the type implements the specified interface, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsInstantiable(System.Type)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Type"/> is instantiable
+            using the <see cref="M:System.Activator.CreateInstance(System.Type)"/> method.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>True if the type is instantiable, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsEnumerable(System.Type)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Type"/> implements
+            <see cref="T:System.Collections.IEnumerable"/> or 
+            <see cref="I:System.Collections.Generic.IEnumerable&lt;&gt;"/>.
+            </summary>
+            <param name="type">The type to query.</param>
+            <returns>True if the specified type is enumerable, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsList(System.Type)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Type"/> implements
+            <see cref="T:System.Collections.IList"/> or 
+            <see cref="I:System.Collections.Generic.IList&lt;&gt;"/>.
+            </summary>
+            <param name="type">The type to query.</param>
+            <returns>True if the specified type is a list, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsCollection(System.Type)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Type"/> implements
+            <see cref="T:System.Collections.ICollection"/> or 
+            <see cref="I:System.Collections.Generic.ICollection&lt;&gt;"/>.
+            </summary>
+            <param name="type">The type to query.</param>
+            <returns>True if the specified type is a collection, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsDictionary(System.Type)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Type"/> implements
+            <see cref="T:System.Collections.IDictionary"/> or 
+            <see cref="I:System.Collections.Generic.IDictionary&lt;,&gt;"/>.
+            </summary>
+            <param name="type">The type to query.</param>
+            <returns>True if the specified type is a dictionary, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Returns an attribute of the specified type, applied to the specified member.
+            </summary>
+            <typeparam name="T">The type of the attribute to locate.</typeparam>
+            <param name="member">The member to search.</param>        
+            <returns>The specified attribute if applied, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            Returns an attribute of the specified type, applied to the specified member.
+            </summary>
+            <typeparam name="T">The type of the attribute to locate.</typeparam>
+            <param name="member">The member to search.</param>
+            <param name="inherit">True to search the inheritance heirachy, otherwise; false.</param>
+            <returns>The specified attribute if applied, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetAttribute``1(System.Reflection.ParameterInfo)">
+            <summary>
+            Returns an attribute of the specified type, applied to the specified parameter.
+            </summary>
+            <typeparam name="T">The type of the attribute to locate.</typeparam>
+            <param name="param">The parameter to search.</param>        
+            <returns>The specified attribute if applied, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetAttribute``1(System.Reflection.ParameterInfo,System.Boolean)">
+            <summary>
+            Returns an attribute of the specified type, applied to the specified parameter.
+            </summary>
+            <typeparam name="T">The type of the attribute to locate.</typeparam>
+            <param name="param">The parameter to search.</param>
+            <param name="inherit">True to search the inheritance heirachy, otherwise; false.</param>
+            <returns>The specified attribute if applied, otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsOfType(System.Object,System.Type)">
+            <summary>
+            Returns a value indicating if the specified object is an instance of the exact 
+            specified type.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="type">The type.</param>
+            <returns>True if the specified object is an instance of the exact specified type, 
+            otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.GetAddMethod(System.Type,System.Type[])">
+            <summary>
+            Searches the specified <see cref="T:System.Type"/> for a public instance method named
+            "Add" with the specified argument types.
+            </summary>
+            <param name="type">The type to search.</param>
+            <param name="argTypes">The argument types.</param>
+            <returns>The <see cref="T:System.Reflection.MethodInfo"/> describing the method if found,
+            otherwise; null.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.CreateInstance(System.String)">
+            <summary>
+            Safely creates an instance of the <see cref="T:System.Type"/> with the specified name.
+            </summary>
+            <param name="typeName">The type name. Can be null or empty.</param>
+            <returns>An instance of the specified type, or null if an error occurs.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.CreateInstance(System.Type)">
+            <summary>
+            Safely creates an instance of the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The type to instantiate. Can be null.</param>
+            <returns>An instance of the specified type, or null if an error occurs.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsNativeClrType(System.Type)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Type"/> is a
+            native CLR type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>True if the specified type is a native CLR type, otherwise; false.</returns>
+        </member>
+        <member name="M:AK.Common.ReflectionHelper.IsNullableType(System.Type)">
+            <summary>
+            Returns a value indicating if the specified type is a <see cref="T:System.Nullable`1"/> type.
+            </summary>
+            <param name="type">A <see cref="T:System.Type"/> to check.</param>
+            <returns>True if the type is a <see cref="T:System.Nullable`1"/> type, otherwise; false.</returns>
+        </member>
+        <member name="T:AK.Common.Disposable">
+            <summary>
+            Defines a base for a class which implements the Disposable pattern. This class
+            is abstract.
+            </summary>    
+        </member>
+        <member name="M:AK.Common.Disposable.Dispose(System.Boolean)">
+            <summary>
+            Disposes of this instance.
+            </summary>
+            <param name="disposing">True if being called explicitly, otherwise; false
+            to indicate being called implicitly by the GC.</param>
+        </member>
+        <member name="M:AK.Common.Disposable.CheckDisposed">
+            <summary>
+            Helper method to throw a <see cref="T:System.ObjectDisposedException"/>
+            if this instance has been disposed of.
+            </summary>
+        </member>
+        <member name="P:AK.Common.Disposable.IsDisposed">
+            <summary>
+            Gets a value indicating if this instance has been disposed of.
+            </summary>
+        </member>
+        <member name="T:AK.Common.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.MustSupportReading">
+            <summary>
+              Looks up a localized string similar to The specified stream must support reading..
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.MustSupportWriting">
+            <summary>
+              Looks up a localized string similar to The specified stream must support writing..
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.PushbackStream_Full">
+            <summary>
+              Looks up a localized string similar to Unable to pushback byte as this stream&apos;s pushback buffer is at capacity..
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.ReflectionHelper_NotACollectionType">
+            <summary>
+              Looks up a localized string similar to Type &quot;{0}&quot; is not a collection type..
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.ReflectionHelper_NotADictionaryType">
+            <summary>
+              Looks up a localized string similar to Type &quot;{0}&quot; is not a dictionary type..
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.SocketHelper_MustBeConnected">
+            <summary>
+              Looks up a localized string similar to Socket must be connected..
+            </summary>
+        </member>
+        <member name="P:AK.Common.Messages.StringHelper_InvalidStringComparison">
+            <summary>
+              Looks up a localized string similar to A valid StringComparison must be specified..
+            </summary>
+        </member>
+        <member name="T:AK.Common.IO.CloseShieldStream">
+            <summary>
+            A <see cref="T:System.IO.Stream"/> decorator which prevents the inner stream
+            from being closed.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.CloseShieldStream.#ctor(System.IO.Stream)">
+            <summary>
+            Initialises a new instance of the CloseShieldStream class.
+            </summary>
+            <param name="inner">The stream to shield.</param>
+        </member>
+        <member name="M:AK.Common.IO.CloseShieldStream.Close">
+            <summary>
+            Closes an releases any resources associated with this stream.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.CloseShieldStream.DisposeInner">
+            <summary>
+            No-operation.
+            </summary>
+        </member>
+        <member name="T:AK.Common.IO.ReadonlyStream">
+            <summary>
+            Provides a readonly <see cref="T:System.IO.Stream"/> decorator.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.#ctor(System.IO.Stream)">
+            <summary>
+            Initialises a new instance of the ReadonlyStream class.
+            </summary>
+            <param name="inner">The inner stream.</param>        
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.Flush">
+            <summary>
+            Flushes this stream causing any buffered data to be written.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes the content of the specifed <paramref name="buffer"/> to this stream.
+            </summary>
+            <param name="buffer">The buffer containing the data to write.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which reading
+            begins.</param>
+            <param name="count">The maximum number of bytes to write.</param>
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins an asynchronous write operation.
+            </summary>
+            <param name="buffer">The buffer containing the data to write.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which reading
+            begins.</param>
+            <param name="count">The maximum number of bytes to write.</param>
+            <param name="callback">The method to invoke when the operation completes.</param>
+            <param name="state">A user defined state object to associate with the operation.</param>
+            <returns>An object which represents the status of the asynchronous operation.</returns>
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.EndWrite(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous write operation.
+            </summary>
+            <param name="asyncResult">The asynchronous operation.</param>
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.WriteByte(System.Byte)">
+            <summary>
+            Writes the specified byte to this stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:AK.Common.IO.ReadonlyStream.SetLength(System.Int64)">
+            <summary>
+            Sets the length of this stream to the specifed <paramref name="value"/>.
+            </summary>
+            <param name="value">The desired length.</param>
+        </member>
+        <member name="P:AK.Common.IO.ReadonlyStream.CanRead">
+            <summary>
+            Gets a value indicating if this stream supports reading.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.ReadonlyStream.CanWrite">
+            <summary>
+            Gets a value indicating if this stream supports writing.
+            </summary>
+        </member>
+        <member name="T:AK.Common.StringHelper">
+            <summary>
+            Provides static <see cref="T:System.String"/> utility methods.
+            </summary>
+        </member>
+        <member name="F:AK.Common.StringHelper.EmptyArray">
+            <summary>
+            Defines an empty array of <see cref="T:System.String"/>s. This field is readonly.
+            </summary>
+        </member>
+        <member name="M:AK.Common.StringHelper.Join``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Joins the elements of the specified <paramref name="collection"/>.
+            </summary>
+            <typeparam name="T">The collection type.</typeparam>
+            <param name="collection">The collection.</param>        
+            <returns>The joined elements.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.Join``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Joins the elements of the specified <paramref name="collection"/> using the specified
+            <paramref name="separator"/>.
+            </summary>
+            <typeparam name="T">The collection type.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="separator">The element separator.</param>
+            <returns>The joined elements.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.ToString(System.Object)">
+            <summary>
+            Returns the <see cref="T:System.String"/> representation of the specified object.
+            </summary>
+            <param name="value">The object.</param>
+            <returns>The <see cref="T:System.String"/> representation of the specified object.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.ToString(System.Object,System.String)">
+            <summary>
+            Returns the <see cref="T:System.String"/> representation of the specified object if it is
+            not null, otherwise; returns <paramref name="mask"/>.
+            </summary>
+            <param name="value">The object.</param>
+            <param name="mask">The string to return if <paramref name="value"/> is null.</param>
+            <returns>The <see cref="T:System.String"/> representation of the specified object if it is
+            not null, otherwise; returns <paramref name="mask"/>.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.GetStringComparer(System.StringComparison)">
+            <summary>
+            Returns the <see cref="T:System.StringComparer"/> for the specified 
+            <see cref="T:System.StringComparison"/>.
+            </summary>
+            <param name="comp">The comparison type.</param>
+            <returns>A string comparer.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.Mask(System.String)">
+            <summary>
+            Masks the specified string, if null, with an empty string.
+            </summary>
+            <param name="s">The string.</param>
+            <returns>An empty string if <paramref name="s"/> is null, otherwise; 
+            <paramref name="s"/>.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.Mask(System.String,System.String)">
+            <summary>
+            Masks the specified string with an empty string if it is equal to the
+            specified <paramref name="comparand"/>.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="comparand">The comparand.</param>
+            <returns>An empty string if <paramref name="s"/> is equal to <paramref name="comparand"/>, 
+            otherwise; <paramref name="s"/>.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.Mask(System.String,System.String,System.String)">
+            <summary>
+            Masks the specified string if with the specified <paramref name="mask"/> if it is equal 
+            to the specified <paramref name="comparand"/>.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="comparand">The comparand.</param>
+            <param name="mask">The replacement string.</param>
+            <returns>An empty string if <paramref name="s"/> is equal to <paramref name="comparand"/>, 
+            otherwise; <paramref name="s"/>.</returns>
+        </member>
+        <member name="M:AK.Common.StringHelper.SdbmHash(System.String)">
+            <summary>
+            Computes and returns the hashcode of the specified string using the SDBM hash 
+            algorithm.
+            </summary>
+            <param name="s">The string to hash.</param>
+            <returns>The SDBM hash of the specified string.</returns>
+            <remarks>This hash implementation is guaranteed never to change.</remarks>
+        </member>
+        <member name="M:AK.Common.StringHelper.SdbmHash(System.String,System.Int64)">
+            <summary>
+            Computes and returns the hashcode of the specified string using the SDBM hash 
+            algorithm.
+            </summary>
+            <param name="s">The string to hash.</param>
+            <param name="seed">The initial hash value.</param>
+            <returns>The SDBM hash of the specified string.</returns>
+            <remarks>This hash implementation is guaranteed never to change.</remarks>
+        </member>
+        <member name="M:AK.Common.StringHelper.IsOnlyDigits(System.String)">
+            <summary>
+            Return a value indicating if the specified string is comprised of digits only.
+            </summary>
+            <param name="s">The string to test.</param>
+            <returns>True if the specified string is comprised of only digits, otherwise; false.</returns>
+        </member>
+        <member name="T:AK.Common.SocketHelper">
+            <summary>
+            Provides static <see cref="T:System.Net.Sockets.Socket"/> ultility methods.
+            </summary>
+        </member>
+        <member name="M:AK.Common.SocketHelper.Shutdown(System.Net.Sockets.Socket)">
+            <summary>
+            Safely shutdown and disposes of the specified <see cref="T:System.Net.Sockets.Socket"/>.
+            </summary>
+            <param name="sck">The socket to shutdown.</param>
+        </member>
+        <member name="M:AK.Common.SocketHelper.SendText(System.Net.Sockets.Socket,System.String,System.Text.Encoding)">
+            <summary>
+            Sends the specified <paramref name="message"/> using the specified <paramref name="encoding"/>.
+            </summary>
+            <param name="socket">The transport.</param>
+            <param name="message">The line to send.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="T:AK.Common.IO.PushbackStream">
+            <summary>
+            Provides a pushback facility to an underlying <see cref="T:System.IO.Stream"/>.
+            This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.#ctor(System.IO.Stream,System.Int32)">
+            <summary>
+            Initialises a new instance of the PushbackStream class.
+            </summary>
+            <param name="inner">The inner stream.</param>
+            <param name="size">The internal pushback buffer size.</param>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from this stream and returns the number of bytes
+            read.
+            </summary>
+            <param name="buffer">The buffer into which the read bytes are written.</param>
+            <param name="offset">The offset in <paramref name="buffer"/> at which 
+            writing begins.</param>
+            <param name="count">The maximum number of bytes to read from the stream.</param>
+            <returns>The number of bytes read from the stream and written to 
+            <paramref name="buffer"/>. A return value of -1 indicates the end of the 
+            stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.ReadByte">
+            <summary>
+            Reads a byte from this stream.
+            </summary>
+            <returns>The read byte, or -1 if the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.Pushback(System.Byte)">
+            <summary>
+            Pushes back the specified byte.
+            </summary>
+            <param name="value">The value to push back.</param>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the position of this stream.
+            </summary>
+            <param name="offset">The offset relative to the 
+            <paramref name="origin"/>.</param>
+            <param name="origin">The reference point.</param>
+            <returns>The new position of the stream.</returns>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.SetLength(System.Int64)">
+            <summary>
+            Sets the length of this stream to the specifed <paramref name="value"/>.
+            </summary>
+            <param name="value">The desired length.</param>
+        </member>
+        <member name="M:AK.Common.IO.PushbackStream.DisposeInner">
+            <summary>
+            No-operation.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.PushbackStream.CanSeek">
+            <summary>
+            Gets a value indicating if this stream supports seeking.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.PushbackStream.Length">
+            <summary>
+            Gets the length in bytes of this stream.
+            </summary>
+        </member>
+        <member name="P:AK.Common.IO.PushbackStream.Position">
+            <summary>
+            Gets or sets the position of this stream.
+            </summary>
+        </member>
+        <member name="T:AK.Common.ExceptionHelper">
+            <summary>
+            Provides static <see cref="T:System.Exception"/> utility methods.
+            </summary>
+        </member>
+        <member name="M:AK.Common.ExceptionHelper.IsFatal(System.Exception)">
+            <summary>
+            Returns a value indicating if the specified <see cref="T:System.Exception"/> is
+            a <see cref="T:System.StackOverflowException"/> or <see cref="T:System.OutOfMemoryException"/> or
+            <see cref="T:System.Threading.ThreadAbortException"/>.
+            </summary>
+            <param name="exc">The exception.</param>
+            <returns>True if the specified exception is fatal, otherwise; false.</returns>
+        </member>
+        <member name="T:AK.Net.Mime.VoidMethod">
+            <summary>
+            Defines a method which accepts no arguments and return void.
+            </summary>
+        </member>
+    </members>
+</doc>

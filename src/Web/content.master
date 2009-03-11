@@ -1,0 +1,75 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="content.master.cs" Inherits="ContentMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server" EnableViewState="false">
+    <title>RC Map - Your Map to RC!</title>
+    <meta name="keywords" content="RcMap, RC Map, Clubs, Tracks, Club Search, Track Search, Club Map, Track Map, RC Cars, RC Cars, RC Bikes, RC Bikes, RC Clubs" />
+    <asp:ContentPlaceHolder ID="MetaDesc" runat="server">
+        <meta name="description" content="RC Map - Your map to finding RC clubs in your area." />
+    </asp:ContentPlaceHolder>
+    <link rel="alternate" type="application/rss+xml" href="http://feeds.rcmap.co.uk/rcmap/locations" title="RC Map - Location Feed" />
+    <link rel="stylesheet" type="text/css" href="/css/base.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/content.css" media="screen" />
+</head>
+<body>
+    <div id="doc2" class="yui-t1">
+	    <div id="hd">
+	        <h1 onclick="window.location.replace('/default.aspx');return false">rcmap.co.uk</h1>
+	    </div>
+	    <div id="bd">
+            <div id="yui-main">
+                <div class="yui-b content">
+                    <form id="aspnetForm" runat="server">
+                        <asp:ContentPlaceHolder ID="Content" runat="server" />
+                    </form>
+                </div>
+            </div>
+            <div class="yui-b menu">
+                <ul>
+                    <asp:ContentPlaceHolder ID="LeftMenuItems" runat="server">
+                        <li><a href="/default.aspx" title="Goto home">Home</a></li>
+                        <li><a href="/about.aspx" title="About RC Map">About</a></li>
+                        <li><a href="/links.aspx" title="Useful RC Links">Links</a></li>
+                        <li><a href="/clubs.aspx" title="View the complete RC club list">Clubs</a></li>
+                        <li><a href="/submit.aspx" title="Submit a RC club to RC Map">Submit</a></li>
+                        <li><a href="/contact.aspx" title="Contact RC Map">Contact</a></li>
+                    </asp:ContentPlaceHolder>
+                </ul>
+                <div id="ads">
+                    <script type="text/javascript">
+                    //<![CDATA[
+                        google_ad_client = "ca-pub-4095501637282573";
+                        /* rcmap.co.uk */
+                        google_ad_slot = "1951784673";
+                        google_ad_width = 120;
+                        google_ad_height = 450;
+                    //]]>
+                    </script>
+                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                </div>
+            </div>
+        </div>
+<<<<<<< .mine
+        <div id="ft">&copy; Andy Kernahan 2008-<%=DateTime.Now.Year%></div>
+=======
+        <div id="ft">&copy; Andy Kernahan 2008-<%=YearAsString%></div>
+>>>>>>> .r824
+    </div>
+    <asp:Panel ID="Analytics" runat="server" EnableViewState="false">
+        <script type="text/javascript">
+        //<![CDATA[
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        //]]>
+        </script>
+        <script type="text/javascript">
+        //<![CDATA[
+            var _pageTracker = _gat._getTracker("<%=Configuration.AnalyticsKey%>");
+            _pageTracker._initData();
+            _pageTracker._trackPageview();
+        //]]>
+        </script>
+    </asp:Panel>
+</body>
+</html>

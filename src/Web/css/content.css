@@ -1,0 +1,93 @@
+﻿html, body {
+	background-color: #cccccc;
+}
+#doc2 {
+	margin-top: 1em;
+	background-color: #ffffff;	
+}
+#hd {	
+	padding-left: 0.5em;
+	border-color: #999999;
+	border-style: solid solid double;	
+	border-width: 1px 1px 3px;
+}
+#bd {
+	border-color: #999999;
+	border-style: solid;
+	border-width: 0 1px 1px;
+}
+#ft {	
+	padding: 0.5em 0;
+	background-color: #cccccc;	
+	text-align: center;	
+	font-size: 0.75em;	
+	color: #888888;
+}
+.yui-t1 #yui-main .yui-b {
+	margin-left: 12.3077em
+}
+.content {
+	border-left: solid 1px #999999;
+	padding: 1em 1em 5em;
+	min-height: 600px;
+}
+.menu {
+	padding: 0.5em 0 0 0;
+}
+.menu ul {
+	padding-left: 1em;
+}
+.menu li {
+	padding: 0.25em 0;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;	
+}
+.row {
+	margin-bottom: 5px;
+	clear: both;
+}
+.row label {
+	width: 125px;
+	float: left;	
+	padding-top: 4px;
+	font-weight: bold;
+}
+.row input {
+	width: 200px;
+}
+.row textarea {
+	width: 400px;
+	height: 200px;
+}
+.row select {
+	width: 204px;
+}
+.row #recaptcha_widget_div {
+	float: left;
+	margin-left: -3px;
+}
+.yui-g .row #recaptcha_widget_div {
+	margin-left: 1.25em;
+}
+span.req-ind {
+	margin-left: 0.3em;
+	color: red;
+}
+.val-summary {
+	padding: 0 0 1em 0;
+}
+.actions {
+	width: 100%;
+	margin-top: 0.25em;
+}
+.actions input {
+	padding: 0.1em 0.25em;
+}
+p.sign-off {
+	margin-top: 2em;
+	font-weight: bold;
+}
+#ads {
+    margin: 2em 0 0 0.75em;
+}

@@ -1,0 +1,37 @@
+﻿fieldset {
+	margin-bottom: 0.5em;
+}
+fieldset legend {
+	margin-bottom: 0.5em;
+	font-weight: bold;
+}
+.row .value {
+	padding-top: 4px;
+}
+.audit {
+	font-size: 85%;
+	color: #cccccc;
+	text-align: center;
+	margin-top: 1em;
+}
+.pagination {
+	margin-top: 0.25em;
+}
+.pagination .page-count {
+	float: left;	
+}
+.pagination .page-links {
+	float: right;	
+}
+.pagination .seperator {
+	padding: 0 3px;
+}
+.actions {	
+	text-transform: lowercase;
+}
+.AspNet-GridView-Alternate {
+	background-color: #F8F8F8;	
+}
+.AspNet-GridView th {
+	background-color: #cccccc;
+}
